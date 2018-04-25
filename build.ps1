@@ -20,7 +20,7 @@ Get-PackageProvider -Name 'NuGet' -ForceBootstrap | Out-Null
 
 Update-LDModule -Name $Script:Modules -Scope $Script:ModuleInstallScope
 
-Set-BuildEnvironment
+#Set-BuildEnvironment
 $Error.Clear()
 
 'Invoking build...'
