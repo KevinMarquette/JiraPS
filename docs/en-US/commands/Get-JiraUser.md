@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Get-JiraUser/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Get-JiraUser/
+schema: 2.0.0
 ---
+
 # Get-JiraUser
 
 ## SYNOPSIS
@@ -16,14 +17,12 @@ Returns a user from Jira
 ## SYNTAX
 
 ### ByUserName (Default)
-
-```powershell
+```
 Get-JiraUser [-UserName] <String[]> [-IncludeInactive] [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ### ByInputObject
-
-```powershell
+```
 Get-JiraUser [-InputObject] <Object[]> [-IncludeInactive] [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
@@ -51,33 +50,18 @@ This example searches Active Directory for "John*Smith", then obtains their JIRA
 
 ## PARAMETERS
 
-### -UserName
+### -Credential
 
-Name of the user to search for.
-
-```yaml
-Type: String[]
-Parameter Sets: ByUserName
-Aliases: User, Name
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -InputObject
-
-User Object of the user.
+Credentials to use to connect to JIRA.  
+If not specified, this function will use anonymous access.
 
 ```yaml
-Type: Object[]
-Parameter Sets: ByInputObject
+Type: PSCredential
+Parameter Sets: (All)
 Aliases:
 
-Required: True
-Position: 1
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -99,27 +83,40 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Credential
+### -InputObject
 
-Credentials to use to connect to JIRA.  
-If not specified, this function will use anonymous access.
+User Object of the user.
 
 ```yaml
-Type: PSCredential
-Parameter Sets: (All)
+Type: Object[]
+Parameter Sets: ByInputObject
 Aliases:
 
-Required: False
-Position: Named
+Required: True
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
+### -UserName
 
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+Name of the user to search for.
+
+```yaml
+Type: String[]
+Parameter Sets: ByUserName
+Aliases: User, Name
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/New-JiraGroup/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/New-JiraGroup/
+schema: 2.0.0
 ---
+
 # New-JiraGroup
 
 ## SYNOPSIS
@@ -15,7 +16,7 @@ Creates a new group in JIRA
 
 ## SYNTAX
 
-```powershell
+```
 New-JiraGroup [-GroupName] <String[]> [[-Credential] <PSCredential>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -37,22 +38,6 @@ This example creates a new JIRA group named testGroup.
 
 ## PARAMETERS
 
-### -GroupName
-
-Name for the new group.
-
-```yaml
-Type: String[]
-Parameter Sets: (All)
-Aliases: Name
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Credential
 
 Credentials to use to connect to JIRA.  
@@ -64,7 +49,39 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -GroupName
+
+Name for the new group.
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases: Name
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -87,26 +104,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Confirm
-
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### CommonParameters
-
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

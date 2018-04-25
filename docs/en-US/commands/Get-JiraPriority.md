@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Get-JiraPriority/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Get-JiraPriority/
+schema: 2.0.0
 ---
+
 # Get-JiraPriority
 
 ## SYNOPSIS
@@ -16,14 +17,12 @@ Returns information about the available priorities in JIRA.
 ## SYNTAX
 
 ### _All (Default)
-
-```powershell
+```
 Get-JiraPriority [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ### _Search
-
-```powershell
+```
 Get-JiraPriority [-Id] <Int32[]> [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
@@ -57,22 +56,6 @@ This example returns only the Priority with ID 1.
 
 ## PARAMETERS
 
-### -Id
-
-ID of the priority to get.
-
-```yaml
-Type: Int32[]
-Parameter Sets: _Search
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-```
-
 ### -Credential
 
 Credentials to use to connect to JIRA.  
@@ -90,10 +73,24 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
+### -Id
 
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+ID of the priority to get.
+
+```yaml
+Type: Int32[]
+Parameter Sets: _Search
+Aliases:
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

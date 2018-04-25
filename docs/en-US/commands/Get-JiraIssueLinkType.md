@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Get-JiraIssueLinkType/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Get-JiraIssueLinkType/
+schema: 2.0.0
 ---
+
 # Get-JiraIssueLinkType
 
 ## SYNOPSIS
@@ -16,14 +17,12 @@ Gets available issue link types
 ## SYNTAX
 
 ### _All (Default)
-
-```powershell
+```
 Get-JiraIssueLinkType [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ### _Search
-
-```powershell
+```
 Get-JiraIssueLinkType [-LinkType] <Object> [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
@@ -58,22 +57,6 @@ This example returns information about the link type with ID 1.
 
 ## PARAMETERS
 
-### -LinkType
-
-The Issue Type name or ID to search.
-
-```yaml
-Type: Object
-Parameter Sets: _Search
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Credential
 
 Credentials to use to connect to JIRA.  
@@ -91,10 +74,24 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
+### -LinkType
 
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+The Issue Type name or ID to search.
+
+```yaml
+Type: Object
+Parameter Sets: _Search
+Aliases:
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Get-JiraServerInformation/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Get-JiraServerInformation/
+schema: 2.0.0
 ---
+
 # Get-JiraServerInformation
 
 ## SYNOPSIS
@@ -15,7 +16,7 @@ This function returns the information about the JIRA Server
 
 ## SYNTAX
 
-```powershell
+```
 Get-JiraServerInformation [[-Credential] <PSCredential>] [<CommonParameters>]
 ```
 
@@ -48,16 +49,14 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 1
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### CommonParameters
-
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

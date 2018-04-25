@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Get-JiraIssueEditMetadata/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Get-JiraIssueEditMetadata/
+schema: 2.0.0
 ---
+
 # Get-JiraIssueEditMetadata
 
 ## SYNOPSIS
@@ -15,7 +16,7 @@ Returns metadata required to change an issue in JIRA
 
 ## SYNTAX
 
-```powershell
+```
 Get-JiraIssueEditMetadata [-Issue] <String> [[-Credential] <PSCredential>] [<CommonParameters>]
 ```
 
@@ -51,22 +52,6 @@ It then uses `Where-Object` (aliased by the question mark) to filter only the fi
 
 ## PARAMETERS
 
-### -Issue
-
-Issue id or key of the reference issue.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Credential
 
 Credentials to use to connect to JIRA.  
@@ -78,16 +63,30 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Issue
+
+Issue id or key of the reference issue.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### CommonParameters
-
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

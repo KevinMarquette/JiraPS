@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Remove-JiraIssueAttachment/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Remove-JiraIssueAttachment/
+schema: 2.0.0
 ---
+
 # Remove-JiraIssueAttachment
 
 ## SYNOPSIS
@@ -16,15 +17,13 @@ Removes an attachment from a JIRA issue
 ## SYNTAX
 
 ### byId (Default)
-
-```powershell
+```
 Remove-JiraIssueAttachment [-AttachmentId] <Int32[]> [-Credential <PSCredential>] [-Force] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
 ### byIssue
-
-```powershell
+```
 Remove-JiraIssueAttachment [-Issue] <Object> [-FileName <String[]>] [-Credential <PSCredential>] [-Force]
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
@@ -77,25 +76,24 @@ Parameter Sets: byId
 Aliases: Id
 
 Required: True
-Position: 1
+Position: 0
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -Issue
+### -Credential
 
-Issue from which to delete on or more attachments.
-
-Can be a `JiraPS.Issue` object, issue key, or internal issue ID.
+Credentials to use to connect to JIRA.  
+If not specified, this function will use anonymous access.
 
 ```yaml
-Type: Object
-Parameter Sets: byIssue
-Aliases: Key
+Type: PSCredential
+Parameter Sets: (All)
+Aliases:
 
-Required: True
-Position: 1
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -108,23 +106,6 @@ Name of the File to delete
 ```yaml
 Type: String[]
 Parameter Sets: byIssue
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Credential
-
-Credentials to use to connect to JIRA.  
-If not specified, this function will use anonymous access.
-
-```yaml
-Type: PSCredential
-Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -150,18 +131,19 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -WhatIf
+### -Issue
 
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
+Issue from which to delete on or more attachments.
+
+Can be a `JiraPS.Issue` object, issue key, or internal issue ID.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
+Type: Object
+Parameter Sets: byIssue
+Aliases: Key
 
-Required: False
-Position: Named
+Required: True
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -183,10 +165,25 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
+### -WhatIf
 
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

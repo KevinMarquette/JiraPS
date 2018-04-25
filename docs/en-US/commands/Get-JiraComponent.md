@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Get-JiraComponent/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Get-JiraComponent/
+schema: 2.0.0
 ---
+
 # Get-JiraComponent
 
 ## SYNOPSIS
@@ -16,14 +17,12 @@ Returns a Component from Jira
 ## SYNTAX
 
 ### ByID (Default)
-
-```powershell
+```
 Get-JiraComponent [-ComponentId] <Int32[]> [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ### ByProject
-
-```powershell
+```
 Get-JiraComponent [-Project] <Object[]> [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
@@ -78,22 +77,6 @@ Return information about all components within projects 'ABC' and 'DEF'
 
 ## PARAMETERS
 
-### -Project
-
-The ID or Key of the Project to search.
-
-```yaml
-Type: Object[]
-Parameter Sets: ByProject
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-```
-
 ### -ComponentId
 
 The ID of the component.
@@ -104,7 +87,7 @@ Parameter Sets: ByID
 Aliases: Id
 
 Required: True
-Position: 1
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -127,10 +110,24 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
+### -Project
 
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+The ID or Key of the Project to search.
+
+```yaml
+Type: Object[]
+Parameter Sets: ByProject
+Aliases:
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

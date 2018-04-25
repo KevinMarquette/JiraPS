@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Invoke-JiraIssueTransition/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Invoke-JiraIssueTransition/
+schema: 2.0.0
 ---
+
 # Invoke-JiraIssueTransition
 
 ## SYNOPSIS
@@ -15,7 +16,7 @@ Performs an issue transition on a JIRA issue changing it's status
 
 ## SYNTAX
 
-```powershell
+```
 Invoke-JiraIssueTransition [-Issue] <Object> [-Transition] <Object> [[-Fields] <Hashtable>]
  [[-Assignee] <Object>] [[-Comment] <String>] [[-Credential] <PSCredential>] [<CommonParameters>]
 ```
@@ -95,58 +96,6 @@ This example identifies the correct transition based on the result status of
 
 ## PARAMETERS
 
-### -Issue
-
-The Issue Object or ID to transition.
-
-Can be a `JiraPS.Issue` object, issue key, or internal issue ID.
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases: Key
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
-```
-
-### -Transition
-
-The Transition Object or it's ID.
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Fields
-
-Any additional fields that should be updated.
-
-Fields must be configured to appear on the transition screen to use this parameter.
-
-```yaml
-Type: Hashtable
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 3
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Assignee
 
 New assignee of the issue.
@@ -160,7 +109,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 4
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -178,7 +127,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 5
+Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -195,16 +144,66 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 6
+Position: 5
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Fields
+
+Any additional fields that should be updated.
+
+Fields must be configured to appear on the transition screen to use this parameter.
+
+```yaml
+Type: Hashtable
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Issue
+
+The Issue Object or ID to transition.
+
+Can be a `JiraPS.Issue` object, issue key, or internal issue ID.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases: Key
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
+### -Transition
+
+The Transition Object or it's ID.
+
+```yaml
+Type: Object
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### CommonParameters
-
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

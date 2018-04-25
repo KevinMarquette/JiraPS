@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Set-JiraIssueLabel/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Set-JiraIssueLabel/
+schema: 2.0.0
 ---
+
 # Set-JiraIssueLabel
 
 ## SYNOPSIS
@@ -16,22 +17,19 @@ Modifies labels on an existing JIRA issue
 ## SYNTAX
 
 ### ReplaceLabels (Default)
-
-```powershell
+```
 Set-JiraIssueLabel [-Issue] <Object[]> -Set <String[]> [-Credential <PSCredential>] [-PassThru] [-WhatIf]
  [-Confirm] [<CommonParameters>]
 ```
 
 ### ModifyLabels
-
-```powershell
+```
 Set-JiraIssueLabel [-Issue] <Object[]> [-Add <String[]>] [-Remove <String[]>] [-Credential <PSCredential>]
  [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ClearLabels
-
-```powershell
+```
 Set-JiraIssueLabel [-Issue] <Object[]> [-Clear] [-Credential <PSCredential>] [-PassThru] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
@@ -81,61 +79,9 @@ This example removes all labels from the issue TEST-01.
 
 ## PARAMETERS
 
-### -Issue
-
-Issue of which the labels should be manipulated.
-
-Can be a `JiraPS.Issue` object, issue key, or internal issue ID.
-
-```yaml
-Type: Object[]
-Parameter Sets: (All)
-Aliases: Key
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
-```
-
-### -Set
-
-List of labels that will be set to the issue.
-
-Any label that was already assigned to the issue will be removed.
-
-```yaml
-Type: String[]
-Parameter Sets: ReplaceLabels
-Aliases: Label, Replace
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Add
 
 Labels to be added in addition to the existing ones.
-
-```yaml
-Type: String[]
-Parameter Sets: ModifyLabels
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Remove
-
-Labels of the issue to be removed.
 
 ```yaml
 Type: String[]
@@ -182,6 +128,24 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Issue
+
+Issue of which the labels should be manipulated.
+
+Can be a `JiraPS.Issue` object, issue key, or internal issue ID.
+
+```yaml
+Type: Object[]
+Parameter Sets: (All)
+Aliases: Key
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
 ### -PassThru
 
 Whether output should be provided after invoking this function.
@@ -198,17 +162,34 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -WhatIf
+### -Remove
 
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
+Labels of the issue to be removed.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
+Type: String[]
+Parameter Sets: ModifyLabels
+Aliases:
 
 Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Set
+
+List of labels that will be set to the issue.
+
+Any label that was already assigned to the issue will be removed.
+
+```yaml
+Type: String[]
+Parameter Sets: ReplaceLabels
+Aliases: Label, Replace
+
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -231,10 +212,25 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
+### -WhatIf
 
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

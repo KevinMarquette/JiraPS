@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Get-JiraIssueAttachment/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Get-JiraIssueAttachment/
+schema: 2.0.0
 ---
+
 # Get-JiraIssueAttachment
 
 ## SYNOPSIS
@@ -15,7 +16,7 @@ Returns attachments of an issue in JIRA.
 
 ## SYNTAX
 
-```powershell
+```
 Get-JiraIssueAttachment [-Issue] <Object> [[-FileName] <String>] [[-Credential] <PSCredential>]
  [<CommonParameters>]
 ```
@@ -58,21 +59,20 @@ Returns all attachments of issue TEST-002 where the filename ends in `.png`
 
 ## PARAMETERS
 
-### -Issue
+### -Credential
 
-JIRA issue to check for attachments.
-
-Can be a `JiraPS.Issue` object, issue key, or internal issue ID.
+Credentials to use to connect to JIRA.  
+If not specified, this function will use anonymous access.
 
 ```yaml
-Type: Object
+Type: PSCredential
 Parameter Sets: (All)
-Aliases: Key
+Aliases:
 
-Required: True
-Position: 1
+Required: False
+Position: 2
 Default value: None
-Accept pipeline input: True (ByPropertyName, ByValue)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -88,33 +88,32 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Credential
+### -Issue
 
-Credentials to use to connect to JIRA.  
-If not specified, this function will use anonymous access.
+JIRA issue to check for attachments.
+
+Can be a `JiraPS.Issue` object, issue key, or internal issue ID.
 
 ```yaml
-Type: PSCredential
+Type: Object
 Parameter Sets: (All)
-Aliases:
+Aliases: Key
 
-Required: False
-Position: 3
+Required: True
+Position: 0
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
 ### CommonParameters
-
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

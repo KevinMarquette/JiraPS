@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Set-JiraUser/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Set-JiraUser/
+schema: 2.0.0
 ---
+
 # Set-JiraUser
 
 ## SYNOPSIS
@@ -16,15 +17,13 @@ Modifies user properties in JIRA
 ## SYNTAX
 
 ### ByNamedParameters (Default)
-
-```powershell
+```
 Set-JiraUser [-User] <Object[]> [-DisplayName <String>] [-EmailAddress <String>] [-Credential <PSCredential>]
  [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ByHashtable
-
-```powershell
+```
 Set-JiraUser [-User] <Object[]> [-Property] <Hashtable> [-Credential <PSCredential>] [-PassThru] [-WhatIf]
  [-Confirm] [<CommonParameters>]
 ```
@@ -60,19 +59,20 @@ This allows updating properties that are not exposed as parameters to this funct
 
 ## PARAMETERS
 
-### -User
+### -Credential
 
-Username or user object obtained from `Get-JiraUser`.
+Credentials to use to connect to JIRA.  
+If not specified, this function will use anonymous access.
 
 ```yaml
-Type: Object[]
+Type: PSCredential
 Parameter Sets: (All)
-Aliases: UserName
+Aliases:
 
-Required: True
-Position: 1
+Required: False
+Position: Named
 Default value: None
-Accept pipeline input: True (ByPropertyName, ByValue)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -108,39 +108,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Property
-
-Hashtable (dictionary) of additional information to set.
-
-```yaml
-Type: Hashtable
-Parameter Sets: ByHashtable
-Aliases:
-
-Required: True
-Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Credential
-
-Credentials to use to connect to JIRA.  
-If not specified, this function will use anonymous access.
-
-```yaml
-Type: PSCredential
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -PassThru
 
 Whether output should be provided after invoking this function.
@@ -153,6 +120,54 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Property
+
+Hashtable (dictionary) of additional information to set.
+
+```yaml
+Type: Hashtable
+Parameter Sets: ByHashtable
+Aliases:
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -User
+
+Username or user object obtained from `Get-JiraUser`.
+
+```yaml
+Type: Object[]
+Parameter Sets: (All)
+Aliases: UserName
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -174,26 +189,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Confirm
-
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### CommonParameters
-
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

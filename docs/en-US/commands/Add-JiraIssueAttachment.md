@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Add-JiraIssueAttachment/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Add-JiraIssueAttachment/
+schema: 2.0.0
 ---
+
 # Add-JiraIssueAttachment
 
 ## SYNOPSIS
@@ -15,7 +16,7 @@ Adds a file attachment to an existing Jira Issue
 
 ## SYNTAX
 
-```powershell
+```
 Add-JiraIssueAttachment [-Issue] <Object> [-FilePath] <String[]> [[-Credential] <PSCredential>] [-PassThru]
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
@@ -31,6 +32,7 @@ This function adds an Attachment to an existing issue in JIRA.
 ```powershell
 Add-JiraIssueAttachment -FilePath "Test comment" -Issue "TEST-001"
 ```
+
 Description  
  -----------  
 This example adds a simple comment to the issue TEST-001.
@@ -47,19 +49,18 @@ This example illustrates pipeline use from Get-JiraIssue to Add-JiraIssueAttachm
 
 ## PARAMETERS
 
-### -Issue
+### -Credential
 
-Issue to which to attach the file.
-
-Can be a `JiraPS.Issue` object, issue key, or internal issue ID.
+Credentials to use to connect to JIRA.  
+If not specified, this function will use anonymous access.
 
 ```yaml
-Type: Object
+Type: PSCredential
 Parameter Sets: (All)
-Aliases: Key
+Aliases:
 
-Required: True
-Position: 1
+Required: False
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -75,24 +76,25 @@ Parameter Sets: (All)
 Aliases: InFile, FullName, Path
 
 Required: True
-Position: 2
+Position: 1
 Default value: None
 Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-### -Credential
+### -Issue
 
-Credentials to use to connect to JIRA.  
-If not specified, this function will use anonymous access.
+Issue to which to attach the file.
+
+Can be a `JiraPS.Issue` object, issue key, or internal issue ID.
 
 ```yaml
-Type: PSCredential
+Type: Object
 Parameter Sets: (All)
-Aliases:
+Aliases: Key
 
-Required: False
-Position: 3
+Required: True
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -114,6 +116,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -WhatIf
 
 Shows what would happen if the cmdlet runs.
@@ -131,26 +149,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Confirm
-
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### CommonParameters
-
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

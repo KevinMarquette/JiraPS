@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Get-JiraIssue/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Get-JiraIssue/
+schema: 2.0.0
 ---
+
 # Get-JiraIssue
 
 ## SYNOPSIS
@@ -16,27 +17,23 @@ Returns information about an issue in JIRA.
 ## SYNTAX
 
 ### ByIssueKey (Default)
-
-```powershell
+```
 Get-JiraIssue [-Key] <String[]> [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ### ByInputObject
-
-```powershell
+```
 Get-JiraIssue [-InputObject] <Object[]> [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ### ByJQL
-
-```powershell
+```
 Get-JiraIssue -Query <String> [-StartIndex <Int32>] [-MaxResults <Int32>] [-PageSize <Int32>]
  [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ### ByFilter
-
-```powershell
+```
 Get-JiraIssue -Filter <Object> [-StartIndex <Int32>] [-MaxResults <Int32>] [-PageSize <Int32>]
  [-Credential <PSCredential>] [<CommonParameters>]
 ```
@@ -119,48 +116,17 @@ This prints all fields of the issue to the console.
 
 ## PARAMETERS
 
-### -Key
+### -Credential
 
-Key of the issue to search for.
+Credentials to use to connect to JIRA.  
+If not specified, this function will use anonymous access.
 
 ```yaml
-Type: String[]
-Parameter Sets: ByIssueKey
+Type: PSCredential
+Parameter Sets: (All)
 Aliases:
 
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -InputObject
-
-Object of an issue to search for.
-
-```yaml
-Type: Object[]
-Parameter Sets: ByInputObject
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Query
-
-JQL query for which to search for.
-
-```yaml
-Type: String
-Parameter Sets: ByJQL
-Aliases: JQL
-
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -183,20 +149,34 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -StartIndex
+### -InputObject
 
-Index of the first issue to return.
-
-This can be used to "page" through issues in a large collection or a slow connection.
+Object of an issue to search for.
 
 ```yaml
-Type: Int32
-Parameter Sets: ByJQL, ByFilter
+Type: Object[]
+Parameter Sets: ByInputObject
 Aliases:
 
-Required: False
-Position: Named
-Default value: 0
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Key
+
+Key of the issue to search for.
+
+```yaml
+Type: String[]
+Parameter Sets: ByIssueKey
+Aliases:
+
+Required: True
+Position: 0
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -241,27 +221,42 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Credential
+### -Query
 
-Credentials to use to connect to JIRA.  
-If not specified, this function will use anonymous access.
+JQL query for which to search for.
 
 ```yaml
-Type: PSCredential
-Parameter Sets: (All)
-Aliases:
+Type: String
+Parameter Sets: ByJQL
+Aliases: JQL
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
+### -StartIndex
 
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+Index of the first issue to return.
+
+This can be used to "page" through issues in a large collection or a slow connection.
+
+```yaml
+Type: Int32
+Parameter Sets: ByJQL, ByFilter
+Aliases:
+
+Required: False
+Position: Named
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

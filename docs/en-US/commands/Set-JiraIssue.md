@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Set-JiraIssue/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Set-JiraIssue/
+schema: 2.0.0
 ---
+
 # Set-JiraIssue
 
 ## SYNOPSIS
@@ -15,7 +16,7 @@ Modifies an existing issue in JIRA
 
 ## SYNTAX
 
-```powershell
+```
 Set-JiraIssue [-Issue] <Object[]> [[-Summary] <String>] [[-Description] <String>] [[-FixVersion] <String[]>]
  [[-Assignee] <Object>] [[-Label] <String[]>] [[-Fields] <Hashtable>] [[-AddComment] <String>]
  [[-Credential] <PSCredential>] [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -95,27 +96,9 @@ You can read more about splatting in: about_Splatting
 
 ## PARAMETERS
 
-### -Issue
+### -AddComment
 
-Issue to be changed.
-
-Can be a `JiraPS.Issue` object, issue key, or internal issue ID.
-
-```yaml
-Type: Object[]
-Parameter Sets: (All)
-Aliases: Key
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
-```
-
-### -Summary
-
-New summary of the issue.
+Add a comment to the issue along with other changes.
 
 ```yaml
 Type: String
@@ -123,39 +106,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Description
-
-New description of the issue.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 3
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -FixVersion
-
-Set the FixVersion of the issue, this will overwrite any present FixVersions
-
-```yaml
-Type: String[]
-Parameter Sets: (All)
-Aliases: FixVersions
-
-Required: False
-Position: 4
+Position: 7
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -173,27 +124,40 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 5
+Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Label
+### -Credential
 
-Labels to be set on the issue.
-
-These will overwrite any existing labels on the issue.
-
-For more granular control over issue labels, use `Set-JiraIssueLabel`.
+Credentials to use to connect to JIRA.  
+If not specified, this function will use anonymous access.
 
 ```yaml
-Type: String[]
+Type: PSCredential
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 6
+Position: 8
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Description
+
+New description of the issue.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -211,40 +175,61 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 7
+Position: 6
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -AddComment
+### -FixVersion
 
-Add a comment to the issue along with other changes.
+Set the FixVersion of the issue, this will overwrite any present FixVersions
 
 ```yaml
-Type: String
+Type: String[]
 Parameter Sets: (All)
-Aliases:
+Aliases: FixVersions
 
 Required: False
-Position: 8
+Position: 3
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Credential
+### -Issue
 
-Credentials to use to connect to JIRA.  
-If not specified, this function will use anonymous access.
+Issue to be changed.
+
+Can be a `JiraPS.Issue` object, issue key, or internal issue ID.
 
 ```yaml
-Type: PSCredential
+Type: Object[]
+Parameter Sets: (All)
+Aliases: Key
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: True (ByPropertyName, ByValue)
+Accept wildcard characters: False
+```
+
+### -Label
+
+Labels to be set on the issue.
+
+These will overwrite any existing labels on the issue.
+
+For more granular control over issue labels, use `Set-JiraIssueLabel`.
+
+```yaml
+Type: String[]
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 9
+Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -266,18 +251,17 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -WhatIf
+### -Summary
 
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
+New summary of the issue.
 
 ```yaml
-Type: SwitchParameter
+Type: String
 Parameter Sets: (All)
-Aliases: wi
+Aliases:
 
 Required: False
-Position: Named
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -299,10 +283,25 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
+### -WhatIf
 
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

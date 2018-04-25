@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Get-JiraGroupMember/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Get-JiraGroupMember/
+schema: 2.0.0
 ---
+
 # Get-JiraGroupMember
 
 ## SYNOPSIS
@@ -15,7 +16,7 @@ Returns members of a given group in JIRA
 
 ## SYNTAX
 
-```powershell
+```
 Get-JiraGroupMember [-Group] <Object[]> [[-StartIndex] <Int32>] [[-MaxResults] <Int32>]
  [[-Credential] <PSCredential>] [<CommonParameters>]
 ```
@@ -49,6 +50,23 @@ the Developers group in JIRA.
 
 ## PARAMETERS
 
+### -Credential
+
+Credentials to use to connect to JIRA.  
+If not specified, this function will use anonymous access.
+
+```yaml
+Type: PSCredential
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Group
 
 Group object of which to display the members.
@@ -59,27 +77,9 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 1
+Position: 0
 Default value: None
 Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
-```
-
-### -StartIndex
-
-Index of the first user to return.
-
-This can be used to "page" through users in a large group or a slow connection.
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
-Default value: 0
-Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -95,32 +95,32 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 3
+Position: 2
 Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Credential
+### -StartIndex
 
-Credentials to use to connect to JIRA.  
-If not specified, this function will use anonymous access.
+Index of the first user to return.
+
+This can be used to "page" through users in a large group or a slow connection.
 
 ```yaml
-Type: PSCredential
+Type: Int32
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 4
-Default value: None
+Position: 1
+Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

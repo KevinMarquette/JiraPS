@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Get-JiraVersion/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Get-JiraVersion/
+schema: 2.0.0
 ---
+
 # Get-JiraVersion
 
 ## SYNOPSIS
@@ -16,26 +17,22 @@ This function returns information about a JIRA Project's Version
 ## SYNTAX
 
 ### byId (Default)
-
-```powershell
+```
 Get-JiraVersion -Id <Int32[]> [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ### byInputVersion
-
-```powershell
+```
 Get-JiraVersion [-InputVersion] <Object> [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ### byProject
-
-```powershell
+```
 Get-JiraVersion [-Project] <String[]> [-Name <String[]>] [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ### byInputProject
-
-```powershell
+```
 Get-JiraVersion [-InputProject] <Object> [-Name <String[]>] [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
@@ -80,6 +77,23 @@ This example returns information about all JIRA Version visible to the current u
 
 ## PARAMETERS
 
+### -Credential
+
+Credentials to use to connect to JIRA.  
+If not specified, this function will use anonymous access.
+
+```yaml
+Type: PSCredential
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Id
 
 The Version ID
@@ -96,38 +110,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -InputVersion
-
-A Version object to search for
-
-```yaml
-Type: Object
-Parameter Sets: byInputVersion
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-```
-
-### -Project
-
-Project key of a project to search
-
-```yaml
-Type: String[]
-Parameter Sets: byProject
-Aliases: Key
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -InputProject
 
 A Project Object to search
@@ -138,7 +120,23 @@ Parameter Sets: byInputProject
 Aliases:
 
 Required: True
-Position: 1
+Position: 0
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -InputVersion
+
+A Version object to search for
+
+```yaml
+Type: Object
+Parameter Sets: byInputVersion
+Aliases:
+
+Required: True
+Position: 0
 Default value: None
 Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
@@ -160,27 +158,24 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Credential
+### -Project
 
-Credentials to use to connect to JIRA.  
-If not specified, this function will use anonymous access.
+Project key of a project to search
 
 ```yaml
-Type: PSCredential
-Parameter Sets: (All)
-Aliases:
+Type: String[]
+Parameter Sets: byProject
+Aliases: Key
 
-Required: False
-Position: Named
+Required: True
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### CommonParameters
-
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

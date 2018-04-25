@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Set-JiraConfigServer/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Set-JiraConfigServer/
+schema: 2.0.0
 ---
+
 # Set-JiraConfigServer
 
 ## SYNOPSIS
@@ -15,7 +16,7 @@ Defines the configured URL for the JIRA server
 
 ## SYNTAX
 
-```powershell
+```
 Set-JiraConfigServer [-Server] <Uri> [[-ConfigFile] <String>] [<CommonParameters>]
 ```
 
@@ -39,22 +40,6 @@ This example defines the server URL of the JIRA server configured in the JiraPS 
 
 ## PARAMETERS
 
-### -Server
-
-The base URL of the Jira instance.
-
-```yaml
-Type: Uri
-Parameter Sets: (All)
-Aliases: Uri
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -ConfigFile
 
 Path where the file with the configuration will be stored.
@@ -67,16 +52,30 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Server
+
+The base URL of the Jira instance.
+
+```yaml
+Type: Uri
+Parameter Sets: (All)
+Aliases: Uri
+
+Required: True
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### CommonParameters
-
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

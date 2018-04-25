@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/Remove-JiraGroup/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/Remove-JiraGroup/
+schema: 2.0.0
 ---
+
 # Remove-JiraGroup
 
 ## SYNOPSIS
@@ -15,7 +16,7 @@ Removes an existing group from JIRA
 
 ## SYNTAX
 
-```powershell
+```
 Remove-JiraGroup [-Group] <Object[]> [[-Credential] <PSCredential>] [-Force] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
@@ -40,22 +41,6 @@ Removes the JIRA group testGroup
 
 ## PARAMETERS
 
-### -Group
-
-Group Object or ID to delete.
-
-```yaml
-Type: Object[]
-Parameter Sets: (All)
-Aliases: GroupName
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-```
-
 ### -Credential
 
 Credentials to use to connect to JIRA.  
@@ -67,7 +52,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -89,20 +74,19 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -WhatIf
+### -Group
 
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
+Group Object or ID to delete.
 
 ```yaml
-Type: SwitchParameter
+Type: Object[]
 Parameter Sets: (All)
-Aliases: wi
+Aliases: GroupName
 
-Required: False
-Position: Named
+Required: True
+Position: 0
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
@@ -122,10 +106,25 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
+### -WhatIf
 
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

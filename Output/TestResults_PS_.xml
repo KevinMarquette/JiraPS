@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="0" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2018-04-25" time="10:25:22">
+  <environment user="mdejulia" machine-name="WPL8F2NMH2" cwd="C:\git\JiraPS" user-domain="LD" platform="Microsoft Windows 10 Enterprise|C:\WINDOWS|\Device\Harddisk0\Partition2" nunit-version="2.5.8.0" os-version="10.0.16299" clr-version="4.0.30319.42000" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="TestFixture" name="Pester" executed="True" result="Success" success="True" time="0" asserts="0" description="Pester">
+    <results>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Add-JiraGroupMember.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Add-JiraGroupMember.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Add-JiraIssueAttachment.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Add-JiraIssueAttachment.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Add-JiraIssueComment.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Add-JiraIssueComment.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Add-JiraIssueLink.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Add-JiraIssueLink.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Add-JiraIssueWatcher.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Add-JiraIssueWatcher.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Add-JiraIssueWorklog.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Add-JiraIssueWorklog.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertFrom-Json2.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertFrom-Json2.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertFrom-URLEncoded.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertFrom-URLEncoded.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraAttachment.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraAttachment.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraComment.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraComment.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraComponent.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraComponent.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraCreateMetaField.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraCreateMetaField.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraEditMetaField.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraEditMetaField.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraField.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraField.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraFilter.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraFilter.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraGroup.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraGroup.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraIssue.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraIssue.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraIssueLink.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraIssueLink.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraIssueLinkType.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraIssueLinkType.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraIssueType.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraIssueType.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraLink.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraLink.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraPriority.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraPriority.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraProject.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraProject.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraServerInfo.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraServerInfo.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraSession.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraSession.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraStatus.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraStatus.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraTransition.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraTransition.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraUser.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraUser.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraVersion.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraVersion.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-JiraWorklogitem.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-JiraWorklogitem.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\ConvertTo-URLEncoded.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\ConvertTo-URLEncoded.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Format-Jira.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Format-Jira.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraComponent.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraComponent.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraConfigServer.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraConfigServer.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraField.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraField.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraFilter.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraFilter.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraGroup.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraGroup.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraGroupMember.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraGroupMember.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraIssue.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraIssue.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraIssueAttachment.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraIssueAttachment.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraIssueComment.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraIssueComment.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraIssueCreateMetadata.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraIssueCreateMetadata.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraIssueEditMetadata.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraIssueEditMetadata.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraIssueLink.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraIssueLink.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraIssueLinkType.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraIssueLinkType.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraIssueType.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraIssueType.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraIssueWatcher.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraIssueWatcher.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraPriority.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraPriority.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraProject.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraProject.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraRemoteLink.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraRemoteLink.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraServerInformation.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraServerInformation.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraSession.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraSession.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraUser.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraUser.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Get-JiraVersion.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Get-JiraVersion.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Invoke-JiraIssueTransition.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Invoke-JiraIssueTransition.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Invoke-JiraMethod.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Invoke-JiraMethod.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\JiraPS.Help.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\JiraPS.Help.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\JiraPS.Integration.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\JiraPS.Integration.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\JiraPS.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\JiraPS.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\New-JiraGroup.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\New-JiraGroup.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\New-JiraIssue.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\New-JiraIssue.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\New-JiraSession.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\New-JiraSession.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\New-JiraUser.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\New-JiraUser.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\New-JiraVersion.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\New-JiraVersion.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Remove-JiraGroup.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Remove-JiraGroup.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Remove-JiraGroupMember.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Remove-JiraGroupMember.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Remove-JiraIssueAttachment.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Remove-JiraIssueAttachment.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Remove-JiraIssueLink.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Remove-JiraIssueLink.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Remove-JiraIssueWatcher.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Remove-JiraIssueWatcher.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Remove-JiraRemoteLink.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Remove-JiraRemoteLink.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Remove-JiraSession.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Remove-JiraSession.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Remove-JiraUser.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Remove-JiraUser.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Remove-JiraVersion.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Remove-JiraVersion.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Resolve-JiraError.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Resolve-JiraError.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Set-JiraConfigServer.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Set-JiraConfigServer.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Set-JiraIssue.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Set-JiraIssue.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Set-JiraIssueLabel.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Set-JiraIssueLabel.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Set-JiraUser.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Set-JiraUser.Tests.ps1">
+        <results />
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\git\JiraPS\Tests\Set-JiraVersion.Tests.ps1" executed="True" result="Success" success="True" time="0" asserts="0" description="C:\git\JiraPS\Tests\Set-JiraVersion.Tests.ps1">
+        <results />
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

@@ -1,12 +1,13 @@
 ---
 external help file: JiraPS-help.xml
+layout: documentation
+locale: en-US
 Module Name: JiraPS
 online version: https://atlassianps.org/docs/JiraPS/commands/New-JiraVersion/
-locale: en-US
-schema: 2.0.0
-layout: documentation
 permalink: /docs/JiraPS/commands/New-JiraVersion/
+schema: 2.0.0
 ---
+
 # New-JiraVersion
 
 ## SYNOPSIS
@@ -16,14 +17,12 @@ Creates a new FixVersion in JIRA
 ## SYNTAX
 
 ### byObject (Default)
-
-```powershell
+```
 New-JiraVersion [-InputObject] <Object> [-Credential <PSCredential>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### byParameters
-
-```powershell
+```
 New-JiraVersion [-Name] <String> [-Project] <Object> [-Description <String>] [-Archived <Boolean>]
  [-Released <Boolean>] [-ReleaseDate <DateTime>] [-StartDate <DateTime>] [-Credential <PSCredential>] [-WhatIf]
  [-Confirm] [<CommonParameters>]
@@ -64,55 +63,40 @@ $version = $version.Project.Key "TEST"
 $version | New-JiraVersion
 ```
 
-
 Description  
  -----------  
 This example duplicates the Version named "1.0.0.0" in Project "RD" to Project "TEST".
 
 ## PARAMETERS
 
-### -InputObject
-Version object that should be created on the server.
+### -Archived
+
+Create the version as archived.
 
 ```yaml
-Type: Object
-Parameter Sets: byObject
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-```
-
-### -Name
-
-Name of the version to create.
-
-```yaml
-Type: String
+Type: Boolean
 Parameter Sets: byParameters
 Aliases:
 
-Required: True
-Position: 1
-Default value: None
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Project
+### -Credential
 
-The Project ID
+Credentials to use to connect to JIRA.  
+If not specified, this function will use anonymous access.
 
 ```yaml
-Type: Object
-Parameter Sets: byParameters
+Type: PSCredential
+Parameter Sets: (All)
 Aliases:
 
-Required: True
-Position: 2
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -134,18 +118,49 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Archived
-
-Create the version as archived.
+### -InputObject
+Version object that should be created on the server.
 
 ```yaml
-Type: Boolean
+Type: Object
+Parameter Sets: byObject
+Aliases:
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -Name
+
+Name of the version to create.
+
+```yaml
+Type: String
 Parameter Sets: byParameters
 Aliases:
 
-Required: False
-Position: Named
-Default value: False
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Project
+
+The Project ID
+
+```yaml
+Type: Object
+Parameter Sets: byParameters
+Aliases:
+
+Required: True
+Position: 1
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -198,15 +213,14 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Credential
+### -Confirm
 
-Credentials to use to connect to JIRA.  
-If not specified, this function will use anonymous access.
+Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: PSCredential
+Type: SwitchParameter
 Parameter Sets: (All)
-Aliases:
+Aliases: cf
 
 Required: False
 Position: Named
@@ -232,26 +246,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Confirm
-
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### CommonParameters
-
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
