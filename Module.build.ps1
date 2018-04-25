@@ -2,7 +2,7 @@ $Script:ModuleName = 'JiraPS'
 . $psscriptroot\BuildTasks\InvokeBuildInit.ps1
 
 task Default Build, Test, UpdateSource
-task Build Copy, BuildModule, BuildManifest, Helpify
+task Build Copy, BuildModule, BuildManifest
 task Helpify GenerateMarkdown, GenerateHelp
 task Test Build, ImportModule, FullTests
 
