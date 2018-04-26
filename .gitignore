@@ -1,6 +1,7 @@
 # Ignore configuration files
 config.xml
-
+Output/
+debug.ps1
 # Ignore all files beginning with a dot (.)
 .*
 # except for git files
