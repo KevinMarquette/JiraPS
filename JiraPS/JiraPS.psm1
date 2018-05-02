@@ -1,13 +1,13 @@
-﻿# Import custom Classes/Objects
-# if (!("" -as [Type])) {
-#     Add-Type -Path (Join-Path $PSScriptRoot JiraPS.Types.cs) -ReferencedAssemblies Microsoft.CSharp
-# }
-
+﻿[CmdletBinding()]
+param()
+$Script:PSModuleRoot = $PSScriptRoot
+Write-Verbose -Message "This file is replaced in the build output, and is only used for debugging."
+Write-Verbose -Message $PSScriptRoot
 # Gather all files
 $PublicFunctions = @( Get-ChildItem -Path $PSScriptRoot\Public\*.ps1 -ErrorAction SilentlyContinue )
 $PrivateFunctions = @( Get-ChildItem -Path $PSScriptRoot\Private\*.ps1 -ErrorAction SilentlyContinue )
 
-# Import Types
+# Import custom Classes/Objects
 try
 {
     Add-Type -Path (Join-Path $PSScriptRoot JiraPS.Types.cs) -ReferencedAssemblies Microsoft.CSharp
