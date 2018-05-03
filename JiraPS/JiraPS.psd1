@@ -4,7 +4,7 @@
     RootModule         = 'JiraPS.psm1'
 
     # Version number of this module.
-    ModuleVersion      = '888.7.0.0'
+    ModuleVersion      = '888.8.0.0'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -61,7 +61,7 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport  = @('Add-JiraGroupMember','Add-JiraIssueAttachment','Add-JiraIssueComment','Add-JiraIssueLink','Add-JiraIssueWatcher','Add-JiraIssueWorklog','Format-Jira','Get-JiraComponent','Get-JiraConfigServer','Get-JiraField','Get-JiraFilter','Get-JiraGroup','Get-JiraGroupMember','Get-JiraIssue','Get-JiraIssueAttachment','Get-JiraIssueComment','Get-JiraIssueCreateMetadata','Get-JiraIssueEditMetadata','Get-JiraIssueLink','Get-JiraIssueLinkType','Get-JiraIssueType','Get-JiraIssueWatcher','Get-JiraPermissionScheme','Get-JiraPriority','Get-JiraProject','Get-JiraRemoteLink','Get-JiraServerInformation','Get-JiraSession','Get-JiraUser','Get-JiraVersion','Get-JiraWorkflow','Get-JiraWorkflowScheme','Invoke-JiraIssueTransition','New-JiraGroup','New-JiraIssue','New-JiraPermissionScheme','New-JiraProject','New-JiraSession','New-JiraUser','New-JiraVersion','Remove-JiraGroup','Remove-JiraGroupMember','Remove-JiraIssueAttachment','Remove-JiraIssueLink','Remove-JiraIssueWatcher','Remove-JiraPermissionScheme','Remove-JiraProject','Remove-JiraRemoteLink','Remove-JiraSession','Remove-JiraUser','Remove-JiraVersion','Remove-JiraWorkflowScheme','Set-JiraConfigServer','Set-JiraIssue','Set-JiraIssueLabel','Set-JiraProject','Set-JiraUser','Set-JiraVersion')
+    FunctionsToExport  = @('Add-JiraGroupMember','Add-JiraIssueAttachment','Add-JiraIssueComment','Add-JiraIssueLink','Add-JiraIssueWatcher','Add-JiraIssueWorklog','Format-Jira','Get-JiraAuditLog','Get-JiraComponent','Get-JiraConfigServer','Get-JiraField','Get-JiraFilter','Get-JiraGroup','Get-JiraGroupMember','Get-JiraIssue','Get-JiraIssueAttachment','Get-JiraIssueComment','Get-JiraIssueCreateMetadata','Get-JiraIssueEditMetadata','Get-JiraIssueLink','Get-JiraIssueLinkType','Get-JiraIssueType','Get-JiraIssueWatcher','Get-JiraPermissionScheme','Get-JiraPriority','Get-JiraProject','Get-JiraRemoteLink','Get-JiraServerInformation','Get-JiraSession','Get-JiraUser','Get-JiraVersion','Get-JiraWorkflow','Get-JiraWorkflowScheme','Invoke-JiraIssueTransition','New-JiraGroup','New-JiraIssue','New-JiraPermissionScheme','New-JiraProject','New-JiraSession','New-JiraUser','New-JiraVersion','Remove-JiraGroup','Remove-JiraGroupMember','Remove-JiraIssueAttachment','Remove-JiraIssueLink','Remove-JiraIssueWatcher','Remove-JiraPermissionScheme','Remove-JiraProject','Remove-JiraRemoteLink','Remove-JiraSession','Remove-JiraUser','Remove-JiraVersion','Remove-JiraWorkflowScheme','Set-JiraConfigServer','Set-JiraIssue','Set-JiraIssueLabel','Set-JiraProject','Set-JiraUser','Set-JiraVersion')
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport    = @()

@@ -71,9 +71,6 @@ function Invoke-JiraMethod {
     }
 
     process {
-        Write-DebugMessage "[$($MyInvocation.MyCommand.Name)] ParameterSetName: $($PsCmdlet.ParameterSetName)"
-        Write-DebugMessage "[$($MyInvocation.MyCommand.Name)] PSBoundParameters: $($PSBoundParameters | Out-String)"
-
         $iwrSplat = @{
             Uri             = $Uri
             Headers         = $_headers
