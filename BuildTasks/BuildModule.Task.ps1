@@ -24,7 +24,7 @@ taskx BuildModule @{
     Jobs    = {
         $sb = [Text.StringBuilder]::new()
         $null = $sb.AppendLine('$Script:PSModuleRoot = $PSScriptRoot')
-
+        $null = $sb.AppendLine('Add-Type -Path (Join-Path $PSScriptRoot JiraPS.Types.cs) -ReferencedAssemblies Microsoft.CSharp')
         # Class importer
         $root = Join-Path -Path $source -ChildPath 'Classes'
         "Load classes from [$root]"
