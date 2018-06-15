@@ -6,6 +6,9 @@
         [String[]]
         $Field,
 
+        [timespan]
+        $CacheTimeout = '00:05:00',
+
         [PSCredential]
         $Credential
     )
@@ -47,7 +50,7 @@
                     If ($script:jiraFieldCacheTimeout)
                     {
                         $cacheValid = [datetime]::UtcNow - $script:jiraFieldCacheTimeout
-                        If ($cacheValid.TotalMinutes -gt 5)
+                        If ($cacheValid -gt $CacheTimeout)
                         {
                             $process = $true
                         }
