@@ -1,3 +1,5 @@
+# AS A GENERAL RULE THIS SHOULD ALWAYS CONTAIN JUST THE CONTENTS OF THE ORIGINAL JIRA PSM1 FROM THE ATLASSIAN REPO
+
 #region Dependencies
 # Load the ConfluencePS namespace from C#
 # if (!("" -as [Type])) {

@@ -2,7 +2,7 @@ $Script:ModuleName = 'JiraPS'
 $config = Get-Module "Configuration" -ListAvailable
 if (-not $config)
 {
-    Install-Module -Name "Configuration" -Force -RequiredVersion "1.3.1"
+    Install-Module -Name "Configuration" -Force -RequiredVersion "1.3.1" -Repository DevOpsPowerShell
 }
 . $psscriptroot\BuildTasks\InvokeBuildInit.ps1
 

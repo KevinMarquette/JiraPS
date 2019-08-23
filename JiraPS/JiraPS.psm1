@@ -5,4 +5,3 @@ Write-Verbose -Message "This file is replaced in the build output, and is only u
 Write-Verbose -Message $PSScriptRoot
 # Gather all files
 . $PSScriptRoot\originalPSM1Content.ps1
-#endregion LoadFunctions
