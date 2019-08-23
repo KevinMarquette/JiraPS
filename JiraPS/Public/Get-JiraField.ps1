@@ -1,5 +1,4 @@
-
-﻿function Get-JiraField
+function Get-JiraField
 {
     [CmdletBinding( DefaultParameterSetName = '_All' )]
     param(
