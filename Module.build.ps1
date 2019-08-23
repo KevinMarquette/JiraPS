@@ -1,4 +1,9 @@
 $Script:ModuleName = 'JiraPS'
+$config = Get-Module "Configuration" -ListAvailable
+if (-not $config)
+{
+    Install-Module -Name "Configuration" -Force -RequiredVersion "1.3.1"
+}
 . $psscriptroot\BuildTasks\InvokeBuildInit.ps1
 
 task Default Build, Test, UpdateSource
