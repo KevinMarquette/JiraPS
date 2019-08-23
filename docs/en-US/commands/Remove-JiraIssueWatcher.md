@@ -33,8 +33,6 @@ This function removes a watcher from an existing issue in JIRA.
 Remove-JiraIssueWatcher -Watcher "fred" -Issue "TEST-001"
 ```
 
-Description  
- -----------  
 This example removes a watcher from the issue TEST-001.
 
 ### EXAMPLE 2
@@ -43,8 +41,6 @@ This example removes a watcher from the issue TEST-001.
 Get-JiraIssue "TEST-002" | Remove-JiraIssueWatcher "fred"
 ```
 
-Description  
- -----------  
 This example illustrates pipeline use from Get-JiraIssue to Remove-JiraIssueWatcher.
 
 ### EXAMPLE 3
@@ -53,8 +49,6 @@ This example illustrates pipeline use from Get-JiraIssue to Remove-JiraIssueWatc
 Get-JiraIssue -Query 'project = "TEST" AND created >= -5d' | Remove-JiraIssueWatcher "fred"
 ```
 
-Description  
- -----------  
 This example illustrates removing watcher on all projects which match a given JQL query.
 
 It would be best to validate the query first to make sure the query returns the expected issues!

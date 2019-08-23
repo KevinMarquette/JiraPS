@@ -17,25 +17,33 @@ Returns information about an issue in JIRA.
 ## SYNTAX
 
 ### ByIssueKey (Default)
-```
-Get-JiraIssue [-Key] <String[]> [-Credential <PSCredential>] [<CommonParameters>]
+
+```powershell
+Get-JiraIssue [-Key] <String[]> [-Fields <String[]>] [-IncludeTotalCount]
+ [-Skip <UInt64>] [-First <UInt64>] [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ### ByInputObject
-```
-Get-JiraIssue [-InputObject] <Object[]> [-Credential <PSCredential>] [<CommonParameters>]
+
+```powershell
+Get-JiraIssue [-InputObject] <Object[]> [-Fields <String[]>] [-IncludeTotalCount]
+ [-Skip <UInt64>] [-First <UInt64>] [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ### ByJQL
-```
-Get-JiraIssue -Query <String> [-StartIndex <Int32>] [-MaxResults <Int32>] [-PageSize <Int32>]
- [-Credential <PSCredential>] [<CommonParameters>]
+
+```powershell
+Get-JiraIssue -Query <String> [-Fields <String[]>] [-StartIndex <UInt32>]
+[-MaxResults <UInt32>] [[PageSize] <UInt32>] [-IncludeTotalCount] [-Skip <UInt64>]
+ [-First <UInt64>] [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ### ByFilter
-```
-Get-JiraIssue -Filter <Object> [-StartIndex <Int32>] [-MaxResults <Int32>] [-PageSize <Int32>]
- [-Credential <PSCredential>] [<CommonParameters>]
+
+```powershell
+Get-JiraIssue -Filter <Object> [-Fields <String[]>][-StartIndex <UInt32>]
+ [-MaxResults <UInt32>] [[PageSize] <UInt32>] [-IncludeTotalCount] [-Skip <UInt64>]
+ [-First <UInt64>] [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -57,8 +65,6 @@ Output from this function can be piped to various other functions in this module
 Get-JiraIssue -Key TEST-001
 ```
 
-Description  
- -----------  
 This example fetches the issue "TEST-001".
 
 The default `Format-Table` view of a Jira issue only shows the value of "Key", "Summary", "Status" and "Created".  
@@ -70,8 +76,6 @@ The default `Format-Table` view of a Jira issue only shows the value of "Key", "
 Get-JiraIssue "TEST-002" | Add-JiraIssueComment "Test comment from PowerShell"
 ```
 
-Description  
- -----------  
 This example illustrates pipeline use from `Get-JiraIssue` to `Add-JiraIssueComment`.
 
 ### EXAMPLE 3
@@ -80,8 +84,6 @@ This example illustrates pipeline use from `Get-JiraIssue` to `Add-JiraIssueComm
 Get-JiraIssue -Query 'project = "TEST" AND created >= -5d'
 ```
 
-Description  
- -----------  
 This example illustrates using the `-Query` parameter and JQL syntax to query Jira for matching issues.
 
 ### EXAMPLE 4
@@ -90,8 +92,6 @@ This example illustrates using the `-Query` parameter and JQL syntax to query Ji
 Get-JiraIssue -InputObject $oldIssue
 ```
 
-Description  
- -----------  
 This example illustrates how to get an update of an issue from an old result of `Get-JiraIssue` stored in $oldIssue.
 
 ### EXAMPLE 5
@@ -100,19 +100,27 @@ This example illustrates how to get an update of an issue from an old result of 
 Get-JiraFilter -Id 12345 | Get-JiraIssue
 ```
 
-Description  
- -----------  
 This example retrieves all issues that match the criteria in the saved filter with id 12345.
 
 ### EXAMPLE 6
 
 ```powershell
-Get-JiraFilter 12345 | Select-Object *
+Get-JiraFilter 12345 | Get-JiraIssue | Select-Object *
 ```
 
-Description  
- -----------  
 This prints all fields of the issue to the console.
+
+### Example 7
+
+```powershell
+Get-JiraIssue -Query "project = TEST" -Fields "key", "summary", "assignee"
+```
+
+This example retrieves all issues in project "TEST" - but only the 3 properties
+listed above: key, summary and assignee
+
+By retrieving only the data really needed, the payload the server sends is
+reduced, which speeds up the query.
 
 ## PARAMETERS
 
@@ -165,13 +173,43 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Key
+### -Fields
+
+Field you would like to select from your issue. By default, all fields are
+returned.
+
+Allowed values:
+
+- `"*all"` - return all fields.
+- `"*navigable"` - return navigable fields only.
+- `"summary", "comment"` - return the summary and comments fields only.
+- `"-comment"` - return all fields except comments.
+- `"*all", "-comment"` - same as above
+
+```yaml
+Type: String[]
+Parameter Sets: ByFilter
+Aliases:
+
+Required: False
+Position: Named
+Default value: "*all"
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -StartIndex
+
+> NOTE: This parameter has been marked as deprecated and will be removed with the next major release.
+> Use `-Skip` instead.
+
+Index of the first issue to return.
 
 Key of the issue to search for.
 
 ```yaml
-Type: String[]
-Parameter Sets: ByIssueKey
+Type: UInt32
+Parameter Sets: ByJQL, ByFilter
 Aliases:
 
 Required: True
@@ -183,12 +221,15 @@ Accept wildcard characters: False
 
 ### -MaxResults
 
+> NOTE: This parameter has been marked as deprecated and will be removed with the next major release.
+> Use `-First` instead.
+
 Maximum number of results to return.
 
 By default, all issues will be returned.
 
 ```yaml
-Type: Int32
+Type: UInt32
 Parameter Sets: ByJQL, ByFilter
 Aliases:
 
@@ -210,13 +251,65 @@ but if the REST calls take a long time,
 try playing with different values here.
 
 ```yaml
-Type: Int32
+Type: UInt32
 Parameter Sets: ByJQL, ByFilter
 Aliases:
 
 Required: False
 Position: Named
-Default value: 50
+Default value: 25
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -IncludeTotalCount
+
+Causes an extra output of the total count at the beginning.
+
+Note this is actually a uInt64, but with a custom string representation.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Skip
+
+Controls how many things will be skipped before starting output.
+
+Defaults to 0.
+
+```yaml
+Type: UInt64
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -First
+
+Indicates how many items to return.
+
+```yaml
+Type: UInt64
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: 18446744073709551615
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

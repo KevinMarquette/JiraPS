@@ -1,62 +1,82 @@
 function New-JiraIssue {
+    # .ExternalHelp ..\JiraPS-help.xml
     [CmdletBinding( SupportsShouldProcess )]
     param(
-        [Parameter( Mandatory )]
+        [Parameter( Mandatory, ValueFromPipelineByPropertyName )]
         [String]
         $Project,
 
-        [Parameter( Mandatory )]
+        [Parameter( Mandatory, ValueFromPipelineByPropertyName )]
         [String]
         $IssueType,
 
-        [Parameter( Mandatory )]
+        [Parameter( Mandatory, ValueFromPipelineByPropertyName )]
         [String]
         $Summary,
 
+        [Parameter( ValueFromPipelineByPropertyName )]
         [Int]
         $Priority,
 
+        [Parameter( ValueFromPipelineByPropertyName )]
         [String]
         $Description,
 
+        [Parameter( ValueFromPipelineByPropertyName )]
         [AllowNull()]
         [AllowEmptyString()]
         [String]
         $Reporter,
 
+        [Parameter( ValueFromPipelineByPropertyName )]
         [String[]]
         $Labels,
 
+        [Parameter( ValueFromPipelineByPropertyName )]
         [String]
         $Parent,
 
+        [Parameter( ValueFromPipelineByPropertyName )]
         [Alias('FixVersions')]
         [String[]]
         $FixVersion,
 
-        [Hashtable]
+        [Parameter( ValueFromPipelineByPropertyName )]
+        [PSCustomObject]
         $Fields,
 
-        [PSCredential]
-        $Credential
+        [Parameter()]
+        [System.Management.Automation.PSCredential]
+        [System.Management.Automation.Credential()]
+        $Credential = [System.Management.Automation.PSCredential]::Empty
     )
 
     begin {
         Write-Verbose "[$($MyInvocation.MyCommand.Name)] Function started"
+    }
 
+    process {
         $server = Get-JiraConfigServer -ErrorAction Stop -Debug:$false
 
         $createmeta = Get-JiraIssueCreateMetadata -Project $Project -IssueType $IssueType -Credential $Credential -ErrorAction Stop -Debug:$false
 
         $resourceURi = "$server/rest/api/latest/issue"
-    }
 
-    process {
         Write-DebugMessage "[$($MyInvocation.MyCommand.Name)] ParameterSetName: $($PsCmdlet.ParameterSetName)"
         Write-DebugMessage "[$($MyInvocation.MyCommand.Name)] PSBoundParameters: $($PSBoundParameters | Out-String)"
 
         $ProjectObj = Get-JiraProject -Project $Project -Credential $Credential -ErrorAction Stop -Debug:$false
-        $IssueTypeObj = Get-JiraIssueType -IssueType $IssueType -Credential $Credential -ErrorAction Stop -Debug:$false
+        $issueTypeObj = $projectObj.IssueTypes | Where-Object -FilterScript {$_.Id -eq $IssueType -or $_.Name -eq $IssueType}
+
+        if ($null -eq $issueTypeObj.Id)
+        {
+            $errorMessage = @{
+                Category         = "InvalidResult"
+                CategoryActivity = "Validating parameters"
+                Message          = "No issue types were found in the project [$Project] for the given issue type [$IssueType]. Use Get-JiraIssueType for more details."
+            }
+            Write-Error @errorMessage
+        }
 
         $requestBody = @{
             "project"   = @{"id" = $ProjectObj.Id}
@@ -74,6 +94,10 @@ function New-JiraIssue {
 
         if ($PSCmdlet.MyInvocation.BoundParameters.ContainsKey("Reporter")) {
             $requestBody["reporter"] = @{"name" = "$Reporter"}
+        }
+        elseif ($ProjectObj.Style -eq "next-gen"){
+            Write-DebugMessage "[$($MyInvocation.MyCommand.Name)] Adding reporter as next-gen projects must have reporter set."
+            $requestBody["reporter"] = @{"name" = "$((Get-JiraUser -Credential $Credential).Name)"}
         }
 
         if ($Parent) {
@@ -107,12 +131,11 @@ function New-JiraIssue {
                 $requestBody["$id"] = $value
             }
             else {
-                $errorItem = [System.Management.Automation.ErrorRecord]::new(
-                    ([System.ArgumentException]"Invalid value for Parameter"),
-                    'ParameterValue.InvalidFields',
-                    [System.Management.Automation.ErrorCategory]::InvalidArgument,
-                    $Fields
-                )
+                $exception = ([System.ArgumentException]"Invalid value for Parameter")
+                $errorId = 'ParameterValue.InvalidFields'
+                $errorCategory = 'InvalidArgument'
+                $errorTarget = $Fields
+                $errorItem = New-Object -TypeName System.Management.Automation.ErrorRecord $exception, $errorId, $errorCategory, $errorTarget
                 $errorItem.ErrorDetails = "Unable to identify field [$name] from -Fields hashtable. Use Get-JiraField for more information."
                 $PSCmdlet.ThrowTerminatingError($errorItem)
             }
@@ -126,12 +149,11 @@ function New-JiraIssue {
                     Write-DebugMessage "[$($MyInvocation.MyCommand.Name)] Required field (id=[$($c.Id)], name=[$($c.Name)]) was provided (value=[$($requestBody.$($c.Id))])"
                 }
                 else {
-                    $errorItem = [System.Management.Automation.ErrorRecord]::new(
-                        ([System.ArgumentException]"Invalid or missing value Parameter"),
-                        'ParameterValue.CreateMetaFailure',
-                        [System.Management.Automation.ErrorCategory]::InvalidArgument,
-                        $Fields
-                    )
+                    $exception = ([System.ArgumentException]"Invalid or missing value Parameter")
+                    $errorId = 'ParameterValue.CreateMetaFailure'
+                    $errorCategory = 'InvalidArgument'
+                    $errorTarget = $Fields
+                    $errorItem = New-Object -TypeName System.Management.Automation.ErrorRecord $exception, $errorId, $errorCategory, $errorTarget
                     $errorItem.ErrorDetails = "Jira's metadata for project [$Project] and issue type [$IssueType] specifies that a field is required that was not provided (name=[$($c.Name)], id=[$($c.Id)]). Use Get-JiraIssueCreateMetadata for more information."
                     $PSCmdlet.ThrowTerminatingError($errorItem)
                 }
@@ -153,16 +175,16 @@ function New-JiraIssue {
         }
         Write-Debug "[$($MyInvocation.MyCommand.Name)] Invoking JiraMethod with `$parameter"
         if ($PSCmdlet.ShouldProcess($Summary, "Creating new Issue on JIRA")) {
-            $result = Invoke-JiraMethod @parameter
-
-            # REST result will look something like this:
-            # {"id":"12345","key":"IT-3676","self":"http://jiraserver.example.com/rest/api/latest/issue/12345"}
-            # This will fetch the created issue to return it with all it'a properties
-            Write-Output (Get-JiraIssue -Key $result.Key -Credential $Credential)
+            if ($result = Invoke-JiraMethod @parameter) {
+                # REST result will look something like this:
+                # {"id":"12345","key":"IT-3676","self":"http://jiraserver.example.com/rest/api/latest/issue/12345"}
+                # This will fetch the created issue to return it with all it'a properties
+                Write-Output (Get-JiraIssue -Key $result.Key -Credential $Credential)
+            }
         }
+        Write-Verbose "[$($MyInvocation.MyCommand.Name)] Complete"
     }
 
     end {
-        Write-Verbose "[$($MyInvocation.MyCommand.Name)] Complete"
     }
 }

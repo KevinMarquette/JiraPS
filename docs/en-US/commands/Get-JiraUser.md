@@ -16,14 +16,22 @@ Returns a user from Jira
 
 ## SYNTAX
 
-### ByUserName (Default)
+### Self (Default)
+
+```powershell
+Get-JiraUser [-Credential <PSCredential>] [<CommonParameters>]
 ```
-Get-JiraUser [-UserName] <String[]> [-IncludeInactive] [-Credential <PSCredential>] [<CommonParameters>]
+
+### ByUserName
+
+```powershell
+Get-JiraUser [-UserName] <String[]> [-IncludeInactive] [[-MaxResults] <UInt32>] [[-Skip] <UInt64>] [-Credential <PSCredential>] [-Exact] [<CommonParameters>]
 ```
 
 ### ByInputObject
-```
-Get-JiraUser [-InputObject] <Object[]> [-IncludeInactive] [-Credential <PSCredential>] [<CommonParameters>]
+
+```powershell
+Get-JiraUser [-InputObject] <Object[]> [-IncludeInactive] [-Credential <PSCredential>] [-Exact] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -38,7 +46,7 @@ This function returns information regarding a specified user from Jira.
 Get-JiraUser -UserName user1
 ```
 
-Returns information about the user user1
+Returns information about all users with username like user1
 
 ### EXAMPLE 2
 
@@ -47,6 +55,30 @@ Get-ADUser -filter "Name -like 'John*Smith'" | Select-Object -ExpandProperty sam
 ```
 
 This example searches Active Directory for "John*Smith", then obtains their JIRA user accounts.
+
+### EXAMPLE 3
+
+```powershell
+Get-JiraUser -Credential $cred
+```
+
+This example returns the JIRA user that is executing the command.
+
+### EXAMPLE 4
+
+```powershell 
+Get-JiraUser -UserName user1 -Exact
+```
+
+Returns information about user user1
+
+### EXAMPLE 5
+
+```powershell
+Get-JiraUser -UserName ""
+```
+
+Returns information about all users. The empty string "" matches all users.
 
 ## PARAMETERS
 
@@ -58,6 +90,22 @@ If not specified, this function will use anonymous access.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Exact
+
+Limits the search to users where the username is exactly the term searched for.
+
+```yaml
+Type: Switch
+Parameter Sets: ByUserName, ByInputObject
 Aliases:
 
 Required: False
@@ -83,9 +131,46 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -InputObject
+### -MaxResults
 
-User Object of the user.
+Maximum number of user to be returned.
+
+> The API does not allow for any value higher than 1000.
+
+```yaml
+Type: UInt32
+Parameter Sets: ByUserName
+Aliases:
+
+Required: False
+Position: Named
+Default value: 50
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Skip
+
+Controls how many objects will be skipped before starting output.
+
+Defaults to 0.
+
+```yaml
+Type: UInt64
+Parameter Sets: ByUserName
+Aliases:
+
+Required: False
+Position: Named
+Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Credential
+
+Credentials to use to connect to JIRA.
+If not specified, this function will use anonymous access.
 
 ```yaml
 Type: Object[]

@@ -7,7 +7,11 @@
 
         # Write error results to the error stream (Write-Error) instead of to the output stream
         [Switch]
-        $WriteError
+        $WriteError,
+
+        [ValidateNotNullOrEmpty()]
+        [System.Management.Automation.PSCmdlet]
+        $Cmdlet = $PSCmdlet
     )
 
     process {
@@ -17,7 +21,13 @@
             if ($i.errorMessages) {
                 foreach ($e in $i.errorMessages) {
                     if ($WriteError) {
-                        Write-Error "JiraPS encountered an error: [$e]"
+                        $exception = ([System.ArgumentException]"Server responded with Error")
+                        $errorId = "ServerResponse"
+                        $errorCategory = 'NotSpecified'
+                        $errorTarget = $i
+                        $errorItem = New-Object -TypeName System.Management.Automation.ErrorRecord $exception, $errorId, $errorCategory, $errorTarget
+                        $errorItem.ErrorDetails = "Jira encountered an error: [$e]"
+                        $Cmdlet.WriteError($errorItem)
                     }
                     else {
                         $obj = [PSCustomObject] @{
@@ -37,7 +47,13 @@
                 $keys = (Get-Member -InputObject $i.errors | Where-Object -FilterScript {$_.MemberType -eq 'NoteProperty'}).Name
                 foreach ($k in $keys) {
                     if ($WriteError) {
-                        Write-Error "Jira encountered an error: [$k] - $($i.errors.$k)"
+                        $exception = ([System.ArgumentException]"Server responded with Error")
+                        $errorId = "ServerResponse.$k"
+                        $errorCategory = 'NotSpecified'
+                        $errorTarget = $i
+                        $errorItem = New-Object -TypeName System.Management.Automation.ErrorRecord $exception, $errorId, $errorCategory, $errorTarget
+                        $errorItem.ErrorDetails = "Jira encountered an error: [$k] - $($i.errors.$k)"
+                        $Cmdlet.WriteError($errorItem)
                     }
                     else {
                         $obj = [PSCustomObject] @{

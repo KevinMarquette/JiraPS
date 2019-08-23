@@ -1,25 +1,21 @@
-# Make PSGallery trusted, to aviod a confirmation in the console
-Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
+#requires -Module PowerShellGet
 
-Install-Module "InvokeBuild" -Scope CurrentUser -Force
+[CmdletBinding()]
+[System.Diagnostics.CodeAnalysis.SuppressMessage('PSAvoidUsingWriteHost', '')]
+param()
 
-$buildHelpersConditions = @{}
-if ($PSVersionTable.PSVersion.Major -ge 5) {
-    # PSv4 does not have the `-AllowClobber` parameter
-    $buildHelpersConditions["AllowClobber"] = $true
+# PowerShell 5.1 and bellow need the PSGallery to be intialized
+if (-not ($gallery = Get-PSRepository -Name PSGallery -ErrorAction SilentlyContinue)) {
+    Write-Host "Installing PackageProvider NuGet"
+    $null = Install-PackageProvider -Name NuGet -Force -ErrorAction SilentlyContinue
 }
-Install-Module "BuildHelpers" -Scope CurrentUser @buildHelpersConditions
 
-$pesterConditions = @{
-    RequiredVersion = "4.1.1"
-    Force           = $true
+# Update PowerShellGet if needed
+if ((Get-Module PowershellGet -ListAvailable)[0].Version -lt [version]"1.6.0") {
+    Write-Host "Updating PowershellGet"
+    Install-Module PowershellGet -Scope CurrentUser -Force
 }
-if ($PSVersionTable.PSVersion.Major -ge 5) {
-    # PSv4 does not have the `-SkipPublisherCheck` parameter
-    $pesterConditions["SkipPublisherCheck"] = $true
-}
-Install-Module "Pester" -Scope CurrentUser @pesterConditions
 
-Install-Module "platyPS" -Scope CurrentUser
-
-Install-Module "PSScriptAnalyzer" -Scope CurrentUser
+Write-Host "Installing Dependencies"
+Import-Module "$PSScriptRoot/BuildTools.psm1" -Force
+Install-Dependency

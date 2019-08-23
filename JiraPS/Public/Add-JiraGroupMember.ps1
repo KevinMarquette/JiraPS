@@ -1,12 +1,15 @@
 function Add-JiraGroupMember {
+    # .ExternalHelp ..\JiraPS-help.xml
     [CmdletBinding( SupportsShouldProcess )]
     param(
         [Parameter( Mandatory, ValueFromPipeline )]
         [Alias('GroupName')]
+        [ValidateNotNullOrEmpty()]
         [Object[]]
         $Group,
 
         [Parameter( Mandatory )]
+        [ValidateNotNullOrEmpty()]
         [Object[]]
         $UserName,
         <#
@@ -14,8 +17,10 @@ function Add-JiraGroupMember {
           Once we have custom classes, this can also accept ValueFromPipeline
         #>
 
-        [PSCredential]
-        $Credential,
+        [Parameter()]
+        [System.Management.Automation.PSCredential]
+        [System.Management.Automation.Credential()]
+        $Credential = [System.Management.Automation.PSCredential]::Empty,
 
         [Switch]
         $PassThru
@@ -47,7 +52,8 @@ function Add-JiraGroupMember {
 
             # Anyway, this builds a bunch of individual JSON strings with each username in its own Web
             # request, which we'll loop through again in the Process block.
-            $users = Get-JiraUser -UserName $UserName -Credential $Credential
+            $users = Resolve-JiraUser -InputObject $UserName -Exact -Credential $Credential
+
             foreach ($user in $users) {
 
                 if ($groupMembers -notcontains $user.Name) {

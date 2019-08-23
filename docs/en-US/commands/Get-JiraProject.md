@@ -43,8 +43,6 @@ The `-Project` parameter will accept either a project ID or a project key.
 Get-JiraProject -Project TEST -Credential $cred
 ```
 
-Description  
- -----------  
 Returns information about the project TEST
 
 ### EXAMPLE 2
@@ -53,8 +51,6 @@ Returns information about the project TEST
 Get-JiraProject 2 -Credential $cred
 ```
 
-Description  
- -----------  
 Returns information about the project with ID 2
 
 ### EXAMPLE 3
@@ -63,8 +59,6 @@ Returns information about the project with ID 2
 Get-JiraProject
 ```
 
-Description  
- -----------  
 Returns information about all projects the user is authorized to view
 
 ## PARAMETERS

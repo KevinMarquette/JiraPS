@@ -33,8 +33,6 @@ This function obtains attachments from existing issues in JIRA.
 Get-JiraIssueAttachment -Issue TEST-001
 ```
 
-Description  
- -----------  
 This example returns all attachments from issue TEST-001.
 
 ### EXAMPLE 2
@@ -43,8 +41,6 @@ This example returns all attachments from issue TEST-001.
 Get-JiraIssue TEST-002 | Get-JiraIssueAttachment
 ```
 
-Description  
- -----------  
 This example illustrates use of the pipeline to return all attachments from issue TEST-002.
 
 ### EXAMPLE 3
@@ -53,8 +49,6 @@ This example illustrates use of the pipeline to return all attachments from issu
 Get-JiraIssue TEST-002 | Get-JiraIssueAttachment -FileName "*.png"
 ```
 
-Description  
- -----------  
 Returns all attachments of issue TEST-002 where the filename ends in `.png`
 
 ## PARAMETERS
@@ -130,6 +124,8 @@ See `New-JiraSession` for more details.
 If neither are supplied, this function will run with anonymous access to JIRA.
 
 ## RELATED LINKS
+
+[Get-JiraAttachmentFile](../Get-JiraAttachmentFile/)
 
 [Add-JiraIssueAttachment](../Add-JiraIssueAttachment/)
 

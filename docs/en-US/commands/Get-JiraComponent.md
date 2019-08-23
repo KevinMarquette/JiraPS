@@ -41,8 +41,6 @@ Therefore, it is not possible to query for Components without a project.
 Get-JiraComponent -Id 10000
 ```
 
-Description  
- -----------  
 Returns information about the component with ID 10000
 
 ### EXAMPLE 2
@@ -51,8 +49,6 @@ Returns information about the component with ID 10000
 Get-JiraComponent 20000 -Credential $cred
 ```
 
-Description  
- -----------  
 Returns information about the component with ID 20000
 
 ### EXAMPLE 3
@@ -61,8 +57,6 @@ Returns information about the component with ID 20000
 Get-JiraProject "Project1" | Get-JiraComponent
 ```
 
-Description  
- -----------  
 Returns information about all components within project 'Project1'
 
 ### EXAMPLE 4
@@ -71,8 +65,6 @@ Returns information about all components within project 'Project1'
 Get-JiraComponent ABC,DEF
 ```
 
-Description  
- -----------  
 Return information about all components within projects 'ABC' and 'DEF'
 
 ## PARAMETERS

@@ -34,8 +34,6 @@ To get the members of a group, use `Get-JiraGroupMember`.
 Get-JiraGroup -GroupName testGroup
 ```
 
-Description  
- -----------  
 Returns information about the group "testGroup"
 
 ### EXAMPLE 2
@@ -45,8 +43,6 @@ Get-JiraGroup -GroupName testGroup |
     Get-JiraGroupMember
 ```
 
-Description  
- -----------  
 This example retrieves the members of "testGroup".
 
 ## PARAMETERS

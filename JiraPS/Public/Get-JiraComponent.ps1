@@ -1,4 +1,5 @@
 function Get-JiraComponent {
+    # .ExternalHelp ..\JiraPS-help.xml
     [CmdletBinding(DefaultParameterSetName = 'ByID')]
     param(
         [Parameter( Position = 0, Mandatory, ValueFromPipeline, ParameterSetName = 'ByProject' )]
@@ -6,12 +7,11 @@ function Get-JiraComponent {
         [ValidateScript(
             {
                 if (("JiraPS.Project" -notin $_.PSObject.TypeNames) -and (($_ -isnot [String]))) {
-                    $errorItem = [System.Management.Automation.ErrorRecord]::new(
-                        ([System.ArgumentException]"Invalid Type for Parameter"),
-                        'ParameterType.NotJiraProject',
-                        [System.Management.Automation.ErrorCategory]::InvalidArgument,
-                        $_
-                    )
+                    $exception = ([System.ArgumentException]"Invalid Type for Parameter") #fix code highlighting]
+                    $errorId = 'ParameterType.NotJiraProject'
+                    $errorCategory = 'InvalidArgument'
+                    $errorTarget = $_
+                    $errorItem = New-Object -TypeName System.Management.Automation.ErrorRecord $exception, $errorId, $errorCategory, $errorTarget
                     $errorItem.ErrorDetails = "Wrong object type provided for Issue. Expected [JiraPS.Project] or [String], but was $($_.GetType().Name)"
                     $PSCmdlet.ThrowTerminatingError($errorItem)
                     <#
@@ -36,8 +36,10 @@ function Get-JiraComponent {
         [Int[]]
         $ComponentId,
 
-        [PSCredential]
-        $Credential
+        [Parameter()]
+        [System.Management.Automation.PSCredential]
+        [System.Management.Automation.Credential()]
+        $Credential = [System.Management.Automation.PSCredential]::Empty
     )
 
     begin {
@@ -54,26 +56,22 @@ function Get-JiraComponent {
 
         switch ($PSCmdlet.ParameterSetName) {
             "ByProject" {
-                if ($Project.PSObject.TypeNames -contains 'JiraPS.Project') {
-                    Write-Output (Get-JiraComponent -ComponentId ($Project.Components).id)
-                }
-                else {
-                    foreach ($_project in $Project) {
-                        Write-Verbose "[$($MyInvocation.MyCommand.Name)] Processing [$_project]"
-                        Write-Debug "[$($MyInvocation.MyCommand.Name)] Processing `$_project [$_project]"
+                foreach ($_project in $Project) {
+                    Write-Verbose "[$($MyInvocation.MyCommand.Name)] Processing [$_project]"
+                    Write-Debug "[$($MyInvocation.MyCommand.Name)] Processing `$_project [$_project]"
 
-                        if ($_project -is [string]) {
-                            $parameter = @{
-                                URI        = $resourceURi -f "/project/$_project/components"
-                                Method     = "GET"
-                                Credential = $Credential
-                            }
-                            Write-Debug "[$($MyInvocation.MyCommand.Name)] Invoking JiraMethod with `$parameter"
-                            $result = Invoke-JiraMethod @parameter
-
-                            Write-Output (ConvertTo-JiraComponent -InputObject $result)
-                        }
+                    if ($_project -isnot [string]) {
+                        $_project = $_project.Key
                     }
+                    $parameter = @{
+                        URI        = $resourceURi -f "/project/$_project/components"
+                        Method     = "GET"
+                        Credential = $Credential
+                    }
+                    Write-Debug "[$($MyInvocation.MyCommand.Name)] Invoking JiraMethod with `$parameter"
+                    $result = Invoke-JiraMethod @parameter
+
+                    Write-Output (ConvertTo-JiraComponent -InputObject $result)
                 }
             }
             "ByID" {

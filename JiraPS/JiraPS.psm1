@@ -7,6 +7,7 @@ Write-Verbose -Message $PSScriptRoot
 $PublicFunctions = @( Get-ChildItem -Path $PSScriptRoot\Public\*.ps1 -ErrorAction SilentlyContinue )
 $PrivateFunctions = @( Get-ChildItem -Path $PSScriptRoot\Private\*.ps1 -ErrorAction SilentlyContinue )
 
+
 # Import custom Classes/Objects
 try
 {
@@ -27,21 +28,19 @@ catch
 }
 
 # Dot source the functions
-foreach ($File in @($PublicFunctions + $PrivateFunctions))
-{
-    Try
-    {
-        . $File.FullName
+foreach ($file in @($PublicFunctions + $PrivateFunctions)) {
+    try {
+        . $file.FullName
     }
-    Catch
-    {
-        $errorItem = [System.Management.Automation.ErrorRecord]::new(
-            ([System.ArgumentException]"Function not found"),
-            'Load.Function',
-            [System.Management.Automation.ErrorCategory]::ObjectNotFound,
-            $File
-        )
-        $errorItem.ErrorDetails = "Failed to import function $($File.BaseName)"
-        $PSCmdlet.ThrowTerminatingError($errorItem)
+    catch {
+        $exception = ([System.ArgumentException]"Function not found")
+        $errorId = "Load.Function"
+        $errorCategory = 'ObjectNotFound'
+        $errorTarget = $file
+        $errorItem = New-Object -TypeName System.Management.Automation.ErrorRecord $exception, $errorId, $errorCategory, $errorTarget
+        $errorItem.ErrorDetails = "Failed to import function $($file.BaseName)"
+        throw $errorItem
     }
 }
+Export-ModuleMember -Function $PublicFunctions.BaseName -Alias *
+#endregion LoadFunctions

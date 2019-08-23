@@ -32,8 +32,6 @@ This functions shows all the information about the JIRA server, such as version,
 Get-JiraServerInformation
 ```
 
-Description  
- -----------  
 This example returns information about the JIRA server.
 
 ## PARAMETERS

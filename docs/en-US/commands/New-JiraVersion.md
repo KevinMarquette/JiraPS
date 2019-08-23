@@ -40,8 +40,6 @@ This function creates a new FixVersion in JIRA.
 New-JiraVersion -Name '1.0.0.0' -Project "RD"
 ```
 
-Description  
- -----------  
 This example creates a new JIRA Version named "1.0.0.0" in project "RD".
 
 ### EXAMPLE 2
@@ -51,8 +49,6 @@ $project = Get-JiraProject -Project "RD"
 New-JiraVersion -Name '1.0.0.0' -Project $project -ReleaseDate "2000-12-31"
 ```
 
-Description  
- -----------  
 Create a new Version in Project "RD" with a set release date.
 
 ### EXAMPLE 3
@@ -63,8 +59,6 @@ $version = $version.Project.Key "TEST"
 $version | New-JiraVersion
 ```
 
-Description  
- -----------  
 This example duplicates the Version named "1.0.0.0" in Project "RD" to Project "TEST".
 
 ## PARAMETERS
@@ -270,3 +264,5 @@ If neither are supplied, this function will run with anonymous access to JIRA.
 [Set-JiraVersion](../Set-JiraVersion/)
 
 [Get-JiraProject](../Get-JiraProject/)
+
+[Move-JiraVersion](../Move-JiraVersion/)

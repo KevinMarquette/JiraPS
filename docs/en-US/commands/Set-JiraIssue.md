@@ -18,8 +18,8 @@ Modifies an existing issue in JIRA
 
 ```
 Set-JiraIssue [-Issue] <Object[]> [[-Summary] <String>] [[-Description] <String>] [[-FixVersion] <String[]>]
- [[-Assignee] <Object>] [[-Label] <String[]>] [[-Fields] <Hashtable>] [[-AddComment] <String>]
- [[-Credential] <PSCredential>] [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [[-Assignee] <Object>] [[-Label] <String[]>] [[-Fields] <PSCustomObject>] [[-AddComment] <String>]
+ [[-Credential] <PSCredential>] [-SkipNotification] [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -32,12 +32,10 @@ This can include changing the issue's summary or description, or assigning the i
 ### EXAMPLE 1
 
 ```powershell
-Set-JiraIssue -Issue TEST-01 -Summary 'Modified issue summary' -Description 'This issue has been modified by PowerShell'
+Set-JiraIssue -Issue TEST-01 -Summary 'Modified issue summary' -Description 'This issue has been modified by PowerShell' -SkipNotification
 ```
 
-Description  
- -----------  
-This example changes the summary and description of the JIRA issue TEST-01.
+This example changes the summary and description of the JIRA issue TEST-01 without updating users by email about the change.
 
 ### EXAMPLE 2
 
@@ -46,8 +44,6 @@ $issue = Get-JiraIssue TEST-01
 $issue | Set-JiraIssue -Description "$($issue.Description)\`n\`nEdit: Also foo."
 ```
 
-Description  
- -----------  
 This example appends text to the end of an existing issue description by using
 `Get-JiraIssue` to obtain a reference to the current issue and description.
 
@@ -57,21 +53,25 @@ This example appends text to the end of an existing issue description by using
 Set-JiraIssue -Issue TEST-01 -Assignee 'Unassigned'
 ```
 
-Description  
- -----------  
 This example removes the assignee from JIRA issue TEST-01.
 
 ### EXAMPLE 4
 
 ```powershell
+Set-JiraIssue -Issue TEST-01 -Assignee 'Default'
+```
+
+This example will set the assgignee of JIRA issue TEST-01 to the value the project or type of the issue determine as default.
+
+### EXAMPLE 5
+
+```powershell
 Set-JiraIssue -Issue TEST-01 -Assignee 'joe' -AddComment 'Dear [~joe], please review.'
 ```
 
-Description  
- -----------  
 This example assigns the JIRA Issue TEST-01 to 'joe' and adds a comment at one.
 
-### EXAMPLE 5
+### EXAMPLE 6
 
 ```powershell
 $parameters = @{
@@ -88,8 +88,6 @@ $parameters = @{
 Set-JiraIssue @parameters -Issue TEST-001, TEST-002
 ```
 
-Description  
- -----------  
 This example uses splatting to update "TEST-001" and "TEST-002".
 
 You can read more about splatting in: about_Splatting
@@ -204,7 +202,7 @@ Issue to be changed.
 Can be a `JiraPS.Issue` object, issue key, or internal issue ID.
 
 ```yaml
-Type: Object[]
+Type: PSCustomObject
 Parameter Sets: (All)
 Aliases: Key
 
@@ -251,7 +249,23 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Summary
+### -SkipNotification
+
+Whether send notification to users about issue change or not
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -PassThru
 
 New summary of the issue.
 

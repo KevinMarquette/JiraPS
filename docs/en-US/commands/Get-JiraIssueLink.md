@@ -32,8 +32,6 @@ This function returns information regarding a specified issueLink from Jira.
 Get-JiraIssueLink 10000
 ```
 
-Description  
- -----------  
 Returns information about the IssueLink with ID 10000
 
 ### EXAMPLE 2
@@ -42,8 +40,6 @@ Returns information about the IssueLink with ID 10000
 Get-JiraIssueLink -IssueLink 10000
 ```
 
-Description  
- -----------  
 Returns information about the IssueLink with ID 10000
 
 ### EXAMPLE 3
@@ -52,8 +48,6 @@ Returns information about the IssueLink with ID 10000
 (Get-JiraIssue TEST-01).issuelinks | Get-JiraIssueLink
 ```
 
-Description  
- -----------  
 Returns the information about all IssueLinks in issue TEST-01
 
 ## PARAMETERS

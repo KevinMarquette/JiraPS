@@ -1,31 +1,31 @@
 ﻿@{
 
     # Script module or binary module file associated with this manifest.
-    RootModule         = 'JiraPS.psm1'
+    RootModule        = 'JiraPS.psm1'
 
     # Version number of this module.
-    ModuleVersion      = '889.0.2.0'
+    ModuleVersion     = '2.12'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
 
     # ID used to uniquely identify this module
-    GUID               = '4bf3eb15-037e-43b7-9e47-20a30436324f'
+    GUID              = '4bf3eb15-037e-43b7-9e47-20a30436324f'
 
     # Author of this module
-    Author             = 'AtlassianPS'
+    Author            = 'AtlassianPS'
 
     # Company or vendor of this module
-    CompanyName        = 'AtlassianPS.org'
+    CompanyName       = 'AtlassianPS.org'
 
     # Copyright statement for this module
-    Copyright          = '(c) 2017 AtlassianPS. All rights reserved.'
+    Copyright         = '(c) 2017 AtlassianPS. All rights reserved.'
 
     # Description of the functionality provided by this module
-    Description        = 'Windows PowerShell module to interact with Atlassian JIRA'
+    Description       = 'Windows PowerShell module to interact with Atlassian JIRA'
 
     # Minimum version of the Windows PowerShell engine required by this module
-    PowerShellVersion  = '3.0'
+    PowerShellVersion = '3.0'
 
     # Name of the Windows PowerShell host required by this module
     # PowerShellHostName = ''
@@ -46,7 +46,7 @@
     # RequiredModules = @()
 
     # Assemblies that must be loaded prior to importing this module
-    RequiredAssemblies = 'System.Web'
+    # RequiredAssemblies = @()
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module.
     # ScriptsToProcess = @()
@@ -55,22 +55,22 @@
     # TypesToProcess = @()
 
     # Format files (.ps1xml) to be loaded when importing this module
-    FormatsToProcess   = 'JiraPS.format.ps1xml'
+    FormatsToProcess  = 'JiraPS.format.ps1xml'
 
     # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport  = @('Add-JiraGroupMember','Add-JiraIssueAttachment','Add-JiraIssueComment','Add-JiraIssueLink','Add-JiraIssueWatcher','Add-JiraIssueWorklog','Add-JiraRoleMember','Format-Jira','Get-JiraAuditLog','Get-JiraComponent','Get-JiraConfigServer','Get-JiraField','Get-JiraFilter','Get-JiraGroup','Get-JiraGroupMember','Get-JiraIssue','Get-JiraIssueAttachment','Get-JiraIssueComment','Get-JiraIssueCreateMetadata','Get-JiraIssueEditMetadata','Get-JiraIssueLink','Get-JiraIssueLinkType','Get-JiraIssueType','Get-JiraIssueWatcher','Get-JiraPermissionScheme','Get-JiraPriority','Get-JiraProject','Get-JiraRemoteLink','Get-JiraRole','Get-JiraServerInformation','Get-JiraSession','Get-JiraUser','Get-JiraVersion','Get-JiraWorkflow','Get-JiraWorkflowScheme','Invoke-JiraIssueTransition','New-JiraGroup','New-JiraIssue','New-JiraPermissionScheme','New-JiraProject','New-JiraSession','New-JiraUser','New-JiraVersion','Remove-JiraGroup','Remove-JiraGroupMember','Remove-JiraIssueAttachment','Remove-JiraIssueLink','Remove-JiraIssueWatcher','Remove-JiraPermissionScheme','Remove-JiraProject','Remove-JiraRemoteLink','Remove-JiraSession','Remove-JiraUser','Remove-JiraVersion','Remove-JiraWorkflowScheme','Set-JiraConfigServer','Set-JiraIssue','Set-JiraIssueLabel','Set-JiraProject','Set-JiraUser','Set-JiraVersion')
+    FunctionsToExport = '*'
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
-    CmdletsToExport    = @()
+    CmdletsToExport   = @()
 
     # Variables to export from this module
     # VariablesToExport = @()
 
     # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-    AliasesToExport    = '*'
+    AliasesToExport   = '*'
 
     # DSC resources to export from this module
     # DscResourcesToExport = @()
@@ -79,15 +79,15 @@
     # ModuleList = @()
 
     # List of all files packaged with this module
-    FileList = @()
+    FileList          = @()
 
     # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
-    PrivateData = @{
+    PrivateData       = @{
 
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags = @(
+            Tags       = @(
                 "powershell",
                 "powershell-gallery",
                 "readthedocs",
@@ -105,7 +105,7 @@
             ProjectUri = 'https://AtlassianPS.org/module/JiraPS'
 
             # A URL to an icon representing this module.
-            IconUri = 'https://AtlassianPS.org/assets/img/JiraPS.png'
+            IconUri    = 'https://AtlassianPS.org/assets/img/JiraPS.png'
 
             # ReleaseNotes of this module
             # ReleaseNotes = ''

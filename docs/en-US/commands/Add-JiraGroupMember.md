@@ -33,8 +33,6 @@ This function adds a JIRA user to a JIRA group.
 Add-JiraGroupMember -Group testUsers -User jsmith
 ```
 
-Description  
- -----------  
 This example adds the user "jsmith" to the group "testUsers"
 
 ### EXAMPLE 2
@@ -43,8 +41,6 @@ This example adds the user "jsmith" to the group "testUsers"
 Get-JiraGroup 'Project Admins' | Add-JiraGroupMember -User jsmith
 ```
 
-Description  
- -----------  
 This example illustrates the use of the pipeline to add "jsmith" to the
 "Project Admins" group in JIRA.
 

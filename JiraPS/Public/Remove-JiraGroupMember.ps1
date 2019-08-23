@@ -1,4 +1,5 @@
 function Remove-JiraGroupMember {
+    # .ExternalHelp ..\JiraPS-help.xml
     [CmdletBinding( SupportsShouldProcess, ConfirmImpact = 'High' )]
     param(
         [Parameter( Mandatory, ValueFromPipeline )]
@@ -6,12 +7,11 @@ function Remove-JiraGroupMember {
         [ValidateScript(
             {
                 if (("JiraPS.Group" -notin $_.PSObject.TypeNames) -and (($_ -isnot [String]))) {
-                    $errorItem = [System.Management.Automation.ErrorRecord]::new(
-                        ([System.ArgumentException]"Invalid Type for Parameter"),
-                        'ParameterType.NotJiraGroup',
-                        [System.Management.Automation.ErrorCategory]::InvalidArgument,
-                        $_
-                    )
+                    $exception = ([System.ArgumentException]"Invalid Type for Parameter") #fix code highlighting]
+                    $errorId = 'ParameterType.NotJiraGroup'
+                    $errorCategory = 'InvalidArgument'
+                    $errorTarget = $_
+                    $errorItem = New-Object -TypeName System.Management.Automation.ErrorRecord $exception, $errorId, $errorCategory, $errorTarget
                     $errorItem.ErrorDetails = "Wrong object type provided for Group. Expected [JiraPS.Group] or [String], but was $($_.GetType().Name)"
                     $PSCmdlet.ThrowTerminatingError($errorItem)
                     <#
@@ -33,12 +33,11 @@ function Remove-JiraGroupMember {
         [ValidateScript(
             {
                 if (("JiraPS.User" -notin $_.PSObject.TypeNames) -and (($_ -isnot [String]))) {
-                    $errorItem = [System.Management.Automation.ErrorRecord]::new(
-                        ([System.ArgumentException]"Invalid Type for Parameter"),
-                        'ParameterType.UotJirauser',
-                        [System.Management.Automation.ErrorCategory]::InvalidArgument,
-                        $_
-                    )
+                    $exception = ([System.ArgumentException]"Invalid Type for Parameter") #fix code highlighting]
+                    $errorId = 'ParameterType.UotJirauser'
+                    $errorCategory = 'InvalidArgument'
+                    $errorTarget = $_
+                    $errorItem = New-Object -TypeName System.Management.Automation.ErrorRecord $exception, $errorId, $errorCategory, $errorTarget
                     $errorItem.ErrorDetails = "Wrong object type provided for User. Expected [JiraPS.User] or [String], but was $($_.GetType().Name)"
                     $PSCmdlet.ThrowTerminatingError($errorItem)
                     <#
@@ -55,8 +54,10 @@ function Remove-JiraGroupMember {
         [Object[]]
         $User,
 
-        [PSCredential]
-        $Credential,
+        [Parameter()]
+        [System.Management.Automation.PSCredential]
+        [System.Management.Automation.Credential()]
+        $Credential = [System.Management.Automation.PSCredential]::Empty,
 
         [Switch]
         $PassThru,
@@ -94,7 +95,7 @@ function Remove-JiraGroupMember {
                 Write-Verbose "[$($MyInvocation.MyCommand.Name)] Processing [$_user]"
                 Write-Debug "[$($MyInvocation.MyCommand.Name)] Processing `$_user [$_user]"
 
-                $userObj = Get-JiraUser -InputObject $_user -Credential $Credential -ErrorAction Stop
+                $userObj = Resolve-JiraUser -InputObject $_user -Exact -Credential $Credential -ErrorAction Stop
 
                 # if ($groupMembers -contains $userObj.Name) {
                 # TODO: test what jira says
@@ -111,7 +112,7 @@ function Remove-JiraGroupMember {
             }
 
             if ($PassThru) {
-                Write-Output (Get-JiraGroup -InputObject $g -Credential $Credential)
+                Write-Output (Get-JiraGroup -InputObject $groupObj -Credential $Credential)
             }
         }
     }

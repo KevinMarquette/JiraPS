@@ -1,4 +1,5 @@
 ﻿function Set-JiraIssueLabel {
+    # .ExternalHelp ..\JiraPS-help.xml
     [CmdletBinding( SupportsShouldProcess, DefaultParameterSetName = 'ReplaceLabels' )]
     param(
         [Parameter( Position = 0, Mandatory, ValueFromPipeline, ValueFromPipelineByPropertyName )]
@@ -6,12 +7,11 @@
         [ValidateScript(
             {
                 if (("JiraPS.Issue" -notin $_.PSObject.TypeNames) -and (($_ -isnot [String]))) {
-                    $errorItem = [System.Management.Automation.ErrorRecord]::new(
-                        ([System.ArgumentException]"Invalid Type for Parameter"),
-                        'ParameterType.NotJiraIssue',
-                        [System.Management.Automation.ErrorCategory]::InvalidArgument,
-                        $_
-                    )
+                    $exception = ([System.ArgumentException]"Invalid Type for Parameter") #fix code highlighting]
+                    $errorId = 'ParameterType.NotJiraIssue'
+                    $errorCategory = 'InvalidArgument'
+                    $errorTarget = $_
+                    $errorItem = New-Object -TypeName System.Management.Automation.ErrorRecord $exception, $errorId, $errorCategory, $errorTarget
                     $errorItem.ErrorDetails = "Wrong object type provided for Issue. Expected [JiraPS.Issue] or [String], but was $($_.GetType().Name)"
                     $PSCmdlet.ThrowTerminatingError($errorItem)
                     <#
@@ -45,8 +45,10 @@
         [Switch]
         $Clear,
 
-        [PSCredential]
-        $Credential,
+        [Parameter()]
+        [System.Management.Automation.PSCredential]
+        [System.Management.Automation.Credential()]
+        $Credential = [System.Management.Automation.PSCredential]::Empty,
 
         [Switch]
         $PassThru
@@ -67,7 +69,7 @@
             # Find the proper object for the Issue
             $issueObj = Resolve-JiraIssueObject -InputObject $_issue -Credential $Credential
 
-            $labels = [System.Collections.ArrayList]@($issueObj.labels)
+            $labels = [System.Collections.ArrayList]@($issueObj.labels | Where-Object {$_})
 
             # As of JIRA 6.4, the Add and Remove verbs in the REST API for
             # updating issues do not support arrays of parameters - you
@@ -88,11 +90,11 @@
                 'ModifyLabels' {
                     if ($Add) {
                         Write-DebugMessage "[$($MyInvocation.MyCommand.Name)] Adding labels"
-                        $null = $labels.Add($Add)
+                        $null = foreach ($_add in $Add) { $labels.Add($_add) }
                     }
                     if ($Remove) {
                         Write-DebugMessage "[$($MyInvocation.MyCommand.Name)] Removing labels"
-                        foreach ($item in $Remote) {
+                        foreach ($item in $Remove) {
                             $labels.Remove($item)
                         }
                     }
@@ -112,7 +114,7 @@
             $parameter = @{
                 URI        = $issueObj.RestURL
                 Method     = "PUT"
-                Body       = ConvertTo-Json -InputObject $requestBody -Depth 4
+                Body       = ConvertTo-Json -InputObject $requestBody -Depth 6
                 Credential = $Credential
             }
             Write-Debug "[$($MyInvocation.MyCommand.Name)] Invoking JiraMethod with `$parameter"

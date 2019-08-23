@@ -16,9 +16,9 @@ Performs an issue transition on a JIRA issue changing it's status
 
 ## SYNTAX
 
-```
-Invoke-JiraIssueTransition [-Issue] <Object> [-Transition] <Object> [[-Fields] <Hashtable>]
- [[-Assignee] <Object>] [[-Comment] <String>] [[-Credential] <PSCredential>] [<CommonParameters>]
+```powershell
+Invoke-JiraIssueTransition [-Issue] <Object> [-Transition] <Object> [[-Fields] <PSCustomObject>]
+ [[-Assignee] <Object>] [[-Comment] <String>] [[-Credential] <PSCredential>] [-Passthru] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -44,8 +44,6 @@ Attempting to perform a transition that does not apply to the issue
 Invoke-JiraIssueTransition -Issue TEST-01 -Transition 11
 ```
 
-Description  
- -----------  
 Invokes transition ID 11 on issue TEST-01.
 
 ### EXAMPLE 2
@@ -54,8 +52,6 @@ Invokes transition ID 11 on issue TEST-01.
 Invoke-JiraIssueTransition -Issue TEST-01 -Transition 11 -Comment 'Transition comment'
 ```
 
-Description  
- -----------  
 Invokes transition ID 11 on issue TEST-01 with a comment.
 Requires the comment field to be configured visible for transition.
 
@@ -65,8 +61,6 @@ Requires the comment field to be configured visible for transition.
 Invoke-JiraIssueTransition -Issue TEST-01 -Transition 11 -Assignee 'joe.bloggs'
 ```
 
-Description  
- -----------  
 Invokes transition ID 11 on issue TEST-01 and assigns to user 'Joe Blogs'.
 
 Requires the assignee field to be configured as visible for transition.
@@ -78,8 +72,6 @@ $transitionFields = @{'customfield_12345' = 'example'}
 Invoke-JiraIssueTransition -Issue TEST-01 -Transition 11 -Fields $transitionFields
 ```
 
-Description  
- -----------  
 Invokes transition ID 11 on issue TEST-01 and configures a custom field value.
 
 Requires fields to be configured as visible for transition.
@@ -139,7 +131,7 @@ Credentials to use to connect to JIRA.
 If not specified, this function will use anonymous access.
 
 ```yaml
-Type: PSCredential
+Type: PSCustomObject
 Parameter Sets: (All)
 Aliases:
 
@@ -188,7 +180,8 @@ Accept wildcard characters: False
 
 ### -Transition
 
-The Transition Object or it's ID.
+Credentials to use to connect to JIRA.
+If not specified, this function will use anonymous access.
 
 ```yaml
 Type: Object
@@ -202,6 +195,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -PassThru
+
+Whether output should be provided after invoking this function.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
@@ -210,6 +219,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ### [JiraPS.Issue] / [String] / [JiraPS.Transition]
 
 ## OUTPUTS
+
+### [JiraPS.Issue]
+
+When `-Passthru` is provided, the issue will be returned.
 
 ## NOTES
 

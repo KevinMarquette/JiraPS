@@ -33,8 +33,6 @@ This function removes an existing version in JIRA.
 Get-JiraVersion -Name '1.0.0.0' -Project $Project | Remove-JiraVersion
 ```
 
-Description  
- -----------  
 This example removes the Version given.
 
 ### EXAMPLE 2
@@ -43,8 +41,6 @@ This example removes the Version given.
 Remove-JiraVersion -Version '66596'
 ```
 
-Description  
- -----------  
 This example removes the Version given.
 
 ## PARAMETERS
@@ -153,4 +149,6 @@ If neither are supplied, this function will run with anonymous access to JIRA.
 [Get-JiraVersion]()
 
 [Set-JiraVersion]()
+
+[Move-JiraVersion](../Move-JiraVersion/)
 

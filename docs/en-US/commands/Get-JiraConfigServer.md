@@ -24,8 +24,6 @@ Get-JiraConfigServer [[-ConfigFile] <String>] [<CommonParameters>]
 
 This function returns the configured URL for the JIRA server that JiraPS should manipulate.
 
-By default, this is stored in a config.xml file at the module's root path.
-
 ## EXAMPLES
 
 ### EXAMPLE 1
@@ -34,37 +32,9 @@ By default, this is stored in a config.xml file at the module's root path.
 Get-JiraConfigServer
 ```
 
-Description  
- -----------  
-Returns the server URL of the JIRA server configured in the JiraPS config file.
-
-### EXAMPLE 2
-
-```powershell
-Get-JiraConfigServer -ConfigFile C:\jiraconfig.xml
-```
-
-Description  
- -----------  
-Returns the server URL of the JIRA server configured at C:\jiraconfig.xml.
+Returns the server URL of the JIRA server configured for the JiraPS module.
 
 ## PARAMETERS
-
-### -ConfigFile
-
-Path to the configuration file, if not the default.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 0
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
 
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
@@ -79,7 +49,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 Support for multiple configuration files is limited at this point in time, but enhancements are planned for a future update.
 
-<TODO: link to issue for tracking>
+<https://github.com/AtlassianPS/JiraPS/issues/45>
+<https://github.com/AtlassianPS/JiraPS/issues/194>
 
 ## RELATED LINKS
 

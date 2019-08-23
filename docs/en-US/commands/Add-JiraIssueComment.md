@@ -34,8 +34,6 @@ You can optionally set the visibility of the comment (All Users, Developers, or 
 Add-JiraIssueComment -Comment "Test comment" -Issue "TEST-001"
 ```
 
-Description  
- -----------  
 This example adds a simple comment to the issue TEST-001.
 
 ### EXAMPLE 2
@@ -44,8 +42,6 @@ This example adds a simple comment to the issue TEST-001.
 Get-JiraIssue "TEST-002" | Add-JiraIssueComment "Test comment from PowerShell"
 ```
 
-Description  
- -----------  
 This example illustrates pipeline use from `Get-JiraIssue` to `Add-JiraIssueComment`.
 
 ### EXAMPLE 3
@@ -55,8 +51,6 @@ Get-JiraIssue -Query 'project = "TEST" AND created >= -5d' |
     Add-JiraIssueComment "This issue has been cancelled per Vice President's orders."
 ```
 
-Description  
- -----------  
 This example illustrates commenting on all projects which match a given JQL query.
 It would be best to validate the query first to make sure the query returns the expected issues!
 
@@ -67,8 +61,6 @@ $comment = Get-Process | Format-Jira
 Add-JiraIssueComment $comment -Issue TEST-003
 ```
 
-Description  
- -----------  
 This example illustrates adding a comment based on other logic to a JIRA issue.
 Note the use of `Format-Jira` to convert the output of `Get-Process` into a format that is easily read by users.
 
