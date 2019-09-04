@@ -94,7 +94,7 @@ function Set-JiraProject
 
     begin
     {
-        $server = Get-JiraConfigServer -ConfigFile $ConfigFile -ErrorAction Stop
+        $server = Get-JiraConfigServer -ErrorAction Stop
     }
     process
     {

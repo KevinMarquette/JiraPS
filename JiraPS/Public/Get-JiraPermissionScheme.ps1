@@ -47,7 +47,7 @@ function Get-JiraPermissionScheme {
 
     begin {
         Write-Debug "[Get-JiraPermissionScheme] Reading server from config file"
-        $server = Get-JiraConfigServer -ConfigFile $ConfigFile -ErrorAction Stop
+        $server = Get-JiraConfigServer -ErrorAction Stop
 
         Write-Debug "[Get-JiraPermissionScheme] ParameterSetName=$($PSCmdlet.ParameterSetName)"
 
