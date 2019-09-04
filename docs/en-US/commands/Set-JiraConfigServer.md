@@ -36,14 +36,12 @@ This example defines the server URL of the JIRA server configured for the JiraPS
 
 ## PARAMETERS
 
-### -ConfigFile
+### -Server
 
-Path where the file with the configuration will be stored.
-
-> This parameter is not yet implemented
+The server URL that will be stored in the configuration file.
 
 ```yaml
-Type: String
+Type: Uri
 Parameter Sets: (All)
 Aliases:
 
