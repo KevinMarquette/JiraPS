@@ -39,7 +39,7 @@
     )
 
     begin {
-        $server = Get-JiraConfigServer -ConfigFile $ConfigFile -ErrorAction Stop
+        $server = Get-JiraConfigServer -ErrorAction Stop
         if ($Force) {
             $oldConfirmPreference = $ConfirmPreference
             $ConfirmPreference = 'None'

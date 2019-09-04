@@ -36,7 +36,7 @@ function Remove-JiraPermissionScheme {
     )
 
     begin {
-        $server = Get-JiraConfigServer -ConfigFile $ConfigFile -ErrorAction Stop
+        $server = Get-JiraConfigServer -ErrorAction Stop
         $restUri = "$server/rest/api/2/permissionscheme"
     }
 

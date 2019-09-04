@@ -35,7 +35,7 @@ function Remove-JiraProject {
         Write-Debug "[Remove-JiraProject] Reading information from config file"
         try {
             Write-Debug "[Remove-JiraProject] Reading Jira server from config file"
-            $server = Get-JiraConfigServer -ConfigFile $ConfigFile -ErrorAction Stop
+            $server = Get-JiraConfigServer -ErrorAction Stop
         }
         catch {
             $err = $_

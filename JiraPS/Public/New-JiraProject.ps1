@@ -82,7 +82,7 @@ function New-JiraProject
     begin
     {
         Write-Debug -Message '[New-JiraProject] Reading information from config file'
-        $server = Get-JiraConfigServer -ConfigFile $ConfigFile -ErrorAction Stop
+        $server = Get-JiraConfigServer -ErrorAction Stop
 
         $uri = "$server/rest/api/2/project"
     }

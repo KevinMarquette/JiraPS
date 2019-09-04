@@ -35,7 +35,7 @@
 
     begin
     {
-        $server = Get-JiraConfigServer -ConfigFile $ConfigFile -ErrorAction Stop
+        $server = Get-JiraConfigServer -ErrorAction Stop
         $restUrl = "$server/rest/api/2/workflowscheme/$ID"
     }
 

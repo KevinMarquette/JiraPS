@@ -17,7 +17,7 @@ Obtains the configured URL for the JIRA server
 ## SYNTAX
 
 ```
-Get-JiraConfigServer [[-ConfigFile] <String>] [<CommonParameters>]
+Get-JiraConfigServer [<CommonParameters>]
 ```
 
 ## DESCRIPTION
