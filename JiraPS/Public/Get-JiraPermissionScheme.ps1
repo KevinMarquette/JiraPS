@@ -70,15 +70,19 @@ function Get-JiraPermissionScheme {
                 If($restResult)
                 {
                     $result = ConvertTo-JiraPermissionScheme -InputObject $restResult
-                }
-                if ($Name) {
-                    foreach ($_name in $Name) {
-                        Write-Verbose "Filtering $_name"
-                        Write-Output ($result | Where-Object {$_.Name -like $_name})
+                    
+                    if ($Name) {
+                        foreach ($_name in $Name) {
+                            Write-Verbose "Filtering $_name"
+                            Write-Output ($result | Where-Object {$_.Name -like $_name})
+                        }
+                    } else {
+                        Write-Output $result
                     }
-                } else {
-                    Write-Output $result
+                } Else {
+                    Write-Output 'No permission schemes found.'
                 }
+                
             }
             "ByID" {
                 foreach ($i in $Id) {
@@ -94,7 +98,7 @@ function Get-JiraPermissionScheme {
                     $restResult = Invoke-JiraMethod @parameter
                     If($restResult)
                     {
-                        Write-Output (ConvertTo-JiraPermissionScheme -InputObject $result)
+                        Write-Output (ConvertTo-JiraPermissionScheme -InputObject $restResult)
                     }
                 }
             }
